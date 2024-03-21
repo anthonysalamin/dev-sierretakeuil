@@ -1,0 +1,23 @@
+---
+f_tag-3: prévention
+f_tag-4: addictions
+title: Dépendances
+f_contenu: "### ADDICTION VALAIS\n\nC'est un centre d'aide et de prévention contre les problèmes d'alcool, de drogues et autres dépendances**.** Il offre une aide directe aux personnes dépendantes et à leurs proches par des entretiens d'aide, ou des placements en centres spécialisés. Il s'occupe aussi de la prévention contre la dépendance.\n\nSi vous avez un problème d'alcool, de drogues ou autres, si vous avez un proche dépendant et que vous voulez l'aider, si vous vivez mal la consommation régulière d'un de vos proches, vous pouvez appeler Addiction Valais.  \n  \n**Adresse :** Addiction Valais section sierroise, Avenue Général-Guisan 2, 960 Sierre\n\n**Téléphone :** 027 456 22 77  \n**E-mail :** [**sierre@addiction-valais.ch  \n‍**](mailto:sierre@addiction-valais.ch)**Site Internet :** [**www.addiction-valais.ch**](http://www.addiction-valais.ch/)\n\n‍\n\n### LA VILLA FLORA\n\nLa Villa Flora est un centre de traitement \_pour personnes dépendantes de l'alcool et d'autres substances. C'est un lieu de vie. En général, on y est envoyé par le biais de Addiction Valais (voir ci-dessus) ou d'un médecin.\n\n**_Comment se passe le traitement ?_**\n\n*   Traitement \_individualisé, d'une durée allant de **cinq semaines à neuf mois**, suivi d'une phase ambulatoire de onze mois\n*   Travail en groupe sur différents thèmes : informations sur la maladie et ses effets à tous les niveaux, gestion des émotions, groupes hommes – femmes\n*   Participation aux ateliers (créativité, cheval, jardin, entreprise…)\n*   Travail sur le corps (relaxation, atelier sport, excursions et marches)\n*   Entretiens individuels, de famille (avec les proches) et avec le réseau professionnel pour des bilans\n*   Vie communautaire structurée par un cadre clair définissant les relations au sein du groupe ainsi que le fonctionnement dans la maison\n*   Soutien pour les démarches administratives ainsi que recherche d'emploi et/ou de logement\n\n**Adresse :** Villa Flora, Chemin des Cyprès 4, 3960 Muraz (Sierre)\n\n**Téléphone :** 027 455 75 51  \n‍**E-mail :** [**villaflora@addiction-valais.ch  \n‍**](mailto:villaflora@addiction-valais.ch)**Site Internet :** [**www.villaflorasierre.ch**](http://www.villaflorasierre.ch/)\n\n‍\n\n### LES ALCOOLIQUES ANONYMES - AA\n\nLes Alcooliques Anonymes est une association d'hommes et de femmes qui partagent entre eux leurs expériences, leurs forces et leurs espoirs dans le but de résoudre leur problème commun et d'aider d'autres alcooliques à se rétablir. Elle organise des groupes de parole. Le désir **d'arrêter de boire** est la seule condition pour devenir membre des AA. La participations aux groupes est gratuite.\n\n**Adresse :** Intergroupe AA Région Valais, CP 2003, 1950 Sion 2 Nord  \n**Téléphone Alcooliques Anonymes Suisse :** 0848 848 846  \n‍**Permanence téléphonique Valais :** 079 353 75 69  \n**Email :** [**info@aasri.org**](mailto:info@aasri.org)  \n**Site Internet :** [**www.aasri.org**](http://www.aasri.org/index.php/fr/)\n\n  \nIl existe plusieurs groupes de rencontre dans chaque canton. Voici les groupes de Sierre :\n\n**_Groupe AA Géronde_**\n\n**Réunion :** lundi à 20h00. Séance ouverte le dernier lundi du mois.  \n‍**Adresse :** Centre paroissiale \"Heilig Geist\" (entrée angle du bâtiment à gauche au bout du petit parking), Route du Simplon 1\n\n**_GROUPE AA Sainte-Croix_**\n\n**Réunion :** mardi à 20h00. Séance ouverte le dernier mardi du mois.  \n‍**Adresse :** Bâtiment Aslec, Rue de la Monderèche 1, CP 130, 3960 Sierre\n\n**_GROUPE AA Treize Etoiles_**  \n**Réunion :** mercredi à 20h00. Séance ouveret le 2ème mercredi du mois.  \n‍**Adresse :** Bâtiment Aslec, Rue de la Monderèche 1, CP 130, 3960 Sierre\n\n**_GROUPE AA Soleil_**  \n**Réunion :** vendredi à 19h45. Séance ouverte le 1er vendredi du mois.  \n‍**Adresse :** Bâtiment Aslec, Rue de la Monderèche 1, CP 130, 3960 Sierre\n\n‍\n\nVous trouverez les informations sur les autres groupes en Valais en cliquant [**ici**](http://www.aasri.org/index.php/fr/reunions/valais)."
+f_tag-2: aide
+slug: dependances
+f_couleur: cms/categories/sante-et-social.md
+updated-on: '2023-06-14T20:12:33.659Z'
+created-on: '2019-09-19T14:03:15.741Z'
+published-on: '2024-02-21T12:20:54.561Z'
+f_image-2:
+  url: >-
+    https://uploads-ssl.webflow.com/5d4d6299e11fbef0e969850a/5e3bf0537eedd0794247aa83_d%C3%A9pendances%20-%20villa%20flora1.jpg
+  alt: null
+f_mini-description: >-
+  Les dépendances sont des liens invisibles qui peuvent nous retenir ou nous
+  libérer, selon notre capacité à les comprendre et à les surmonter.
+layout: '[info].html'
+tags: info
+---
+
+

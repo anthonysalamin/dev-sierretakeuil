@@ -1,0 +1,1761 @@
+backend:
+  name: git-gateway
+  accept_roles:
+    - admin
+    - editor
+  branch: main
+media_folder: theme/assets/images
+public_folder: /assets/images
+collections:
+  - name: pages
+    label: Pages
+    identifier_field: title
+    extension: md
+    create: false
+    delete: false
+    slug: '{{slug}}'
+    editor:
+      preview: false
+    folder: cms/pages
+    fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '{{slug}}.html'
+      - &ref_0
+        label: Seo
+        name: seo
+        widget: object
+        collapsed: true
+        fields:
+          - label: Title
+            name: title
+            widget: string
+            required: false
+          - label: Description
+            name: description
+            widget: string
+            required: false
+          - label: No index
+            name: noindex
+            widget: boolean
+            default: false
+            required: false
+          - label: Open Graph Title
+            name: og:title
+            widget: string
+            required: false
+          - label: Open Graph Image
+            name: og:image
+            widget: image
+            required: false
+            media_library:
+              config:
+                multiple: false
+          - label: Twitter Title
+            name: twitter:title
+            widget: string
+            default: summary
+            required: false
+          - label: Twitter Card
+            name: twitter:card
+            widget: string
+            default: summary
+            required: false
+          - label: Twitter Site
+            name: twitter:site
+            widget: string
+            required: false
+          - label: Twitter Creator
+            name: twitter:creator
+            widget: string
+            required: false
+          - label: Twitter Image
+            name: twitter:image
+            widget: image
+            required: false
+            media_library:
+              config:
+                multiple: false
+          - label: Additional HTML tags
+            name: additional_tags
+            widget: text
+            required: false
+  - name: news
+    label: News
+    folder: cms/news
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Name
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - hint: >-
+          suggestion: lien vers la news du site de la ville de sierre par
+          example
+        name: f_lien-vers-la-news
+        label: Lien vers la news
+        widget: string
+        required: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: news
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[news].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
+  - name: temoignages
+    label: Témoignages
+    folder: cms/temoignages
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: 'Suggestion: écrire uniquement le prénom de la personne'
+        name: title
+        label: Prénom
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: f_ordre-d-apparation
+        label: Ordre d'apparation
+        widget: number
+        required: false
+      - hint: >-
+          Choisir si le témoignage vient s'afficher dans al colone de droite ou
+          de gauche.
+        name: f_colone-droite-ou-gauche
+        label: Colone (droite ou gauche)
+        widget: select
+        required: false
+        options:
+          - label: Gauche
+            value: Gauche
+          - label: Droite
+            value: Droite
+      - hint: Le texte doit idéallement être bref, très court.
+        name: f_temoignage
+        label: Témoignage
+        widget: text
+        required: false
+      - hint: ''
+        name: f_portrait
+        label: Portrait
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_legende
+        label: Légende (Prénom Nom)
+        widget: string
+        required: false
+      - hint: 'Suggestion: nom de la commune'
+        name: f_legende-commune
+        label: Légende (Commune)
+        widget: string
+        required: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: temoignages
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[temoignages].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
+  - name: inscriptions_categories
+    label: Inscriptions categories
+    folder: cms/inscriptions-categories
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Name
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - hint: Order from which the filters are being displayed
+        name: f_order
+        label: Order
+        widget: number
+        required: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: inscriptions-categories
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[inscriptions-categories].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
+  - name: inscriptions
+    label: Inscriptions
+    folder: cms/inscriptions
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Name
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - label: Description de l'inscription en ligne
+        name: body
+        widget: markdown
+        required: false
+      - hint: ''
+        name: f_image
+        label: Image
+        widget: object
+        required: true
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: true
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_date-de-publication
+        label: Date de publication de l'inscription en ligne
+        widget: datetime
+        required: true
+      - hint: ''
+        name: f_categorie-de-l-inscription-en-ligne
+        label: Categorie de l'inscription en ligne
+        widget: relation
+        required: true
+        collection: inscriptions_categories
+        value_field: cms/inscriptions-categories/{{slug}}.md
+        search_fields:
+          - slug
+          - name
+        display_fields:
+          - title
+        multiple: false
+      - hint: Is the inscription in highlight on page load ?
+        name: f_highlight
+        label: Highlight
+        widget: boolean
+        required: false
+        default: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: inscriptions
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[inscriptions].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
+  - name: photos
+    label: Photos
+    folder: cms/photos
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Name
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - hint: Petite description de la photo
+        name: f_descriptions
+        label: Descriptions
+        widget: text
+        required: false
+      - hint: ''
+        name: f_photo
+        label: Photo
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: photos
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[photos].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
+  - name: markers
+    label: Markers
+    folder: cms/markers
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Name
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: f_lat
+        label: lat
+        widget: number
+        required: false
+      - hint: ''
+        name: f_lng
+        label: lng
+        widget: number
+        required: false
+      - hint: ''
+        name: f_description
+        label: description
+        widget: string
+        required: false
+      - hint: ''
+        name: f_website-url
+        label: website URL
+        widget: string
+        required: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: markers
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[markers].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
+  - name: categories
+    label: Categories
+    folder: cms/categories
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: Nom de la catégorie (en majuscule, avec accent)
+        name: title
+        label: Name
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - hint: (en miniscule, sans espace et sans accent)
+        name: f_nom-de-la-categorie
+        label: Category
+        widget: string
+        required: false
+      - hint: Couleur principale de la catégorie
+        name: f_couleur
+        label: Color
+        widget: color
+        required: false
+        enableAlpha: true
+        allowInput: true
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: categories
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[categories].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
+  - name: contact
+    label: Contacts
+    folder: cms/contact
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Name
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - label: Contenu
+        name: body
+        widget: markdown
+        required: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: contact
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[contact].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
+  - name: info
+    label: Infos
+    folder: cms/info
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - label: Content
+        name: body
+        widget: markdown
+        required: false
+      - hint: ''
+        name: title
+        label: Name
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - hint: Sélectionner la catégorie couleur de cette information
+        name: f_couleur
+        label: Category
+        widget: relation
+        required: false
+        collection: categories
+        value_field: cms/categories/{{slug}}.md
+        search_fields:
+          - slug
+          - name
+        display_fields:
+          - title
+        multiple: false
+      - hint: >-
+          Une petite phrase descriptive qui aide à mieux comprendre le titre de
+          la capsule d'info.
+        name: f_mini-description
+        label: Micro description
+        widget: text
+        required: false
+      - hint: >-
+          Cette information est-elle en selection sur la page d'accueil ? Si
+          oui, activer le switch.
+        name: f_selection-3
+        label: Featuring
+        widget: boolean
+        required: false
+        default: false
+      - hint: Mot clé pour cette information (max 25 charactères)
+        name: f_tag-2
+        label: 'Tag #1'
+        widget: string
+        required: false
+      - hint: Mot clé pour cette information (max 25 charactères)
+        name: f_tag-3
+        label: 'Tag #2'
+        widget: string
+        required: false
+      - hint: Mot clé pour cette information (max 25 charactères)
+        name: f_tag-4
+        label: 'Tag #3'
+        widget: string
+        required: false
+      - hint: Ratio 16:9, @72dpi @max 200ko au format jpg
+        name: f_image-2
+        label: Image au format 16:9
+        widget: object
+        required: false
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: false
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: Contenu principale de l'information (text, photo, etc...)
+        name: f_contenu
+        label: Contenu
+        widget: markdown
+        required: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: info
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[info].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
+  - label: Theme Settings
+    name: settings
+    identifier_field: title
+    extension: json
+    create: false
+    delete: false
+    slug: '{{slug}}'
+    editor:
+      preview: false
+    files:
+      - label: General
+        name: site
+        file: cms/_data/settings/site.json
+        fields:
+          - label: Title
+            name: title
+            widget: hidden
+            default: General
+          - hint: Full domain url (needed for a correct sitemap file)
+            name: domain
+            label: Domain
+            widget: string
+            required: false
+          - name: favicon
+            label: Favicon
+            widget: image
+            allow_multiple: false
+            required: false
+          - name: apple_touch_icon
+            label: Apple Touch Icon
+            widget: image
+            allow_multiple: false
+            required: false
+          - name: header_additional_content
+            label: Additional Content Header
+            hint: Content here will be placed before </head> tag
+            widget: text
+            required: false
+          - name: footer_additional_content
+            label: Additional Content Footer
+            hint: Content here will be placed before </body> tag
+            widget: text
+            required: false
+          - name: images_optimization
+            label: Images Optimization
+            widget: object
+            collapsed: false
+            fields:
+              - label: Image Formats
+                name: formats
+                widget: select
+                multiple: true
+                options:
+                  - label: Avif
+                    value: avif
+                  - label: Webp
+                    value: webp
+              - label: Image Dimensions
+                name: dimensions
+                widget: select
+                multiple: true
+                options:
+                  - label: '500'
+                    value: 500
+                  - label: '800'
+                    value: 800
+                  - label: '1080'
+                    value: 1080
+                  - label: '1600'
+                    value: 1600
+                  - label: '2000'
+                    value: 2000
+                  - label: '2600'
+                    value: 2600
+      - label: Colors
+        name: colors
+        file: cms/_data/colors.json
+        fields:
+          - label: Title
+            name: title
+            widget: hidden
+            default: Colors
+      - label: Texts
+        name: texts
+        file: cms/_data/texts.json
+        fields:
+          - label: Title
+            name: title
+            widget: hidden
+            default: Texts
+          - hint: 'Original text: News, key: 24fef3'
+            label: Text
+            name: 24fef3
+            widget: string
+          - hint: 'Original text: No items found., key: 3d503d2b'
+            label: Text
+            name: 3d503d2b
+            widget: string
+          - hint: 'Original text: Ville de Sierre, key: 10418c27'
+            label: Text
+            name: 10418c27
+            widget: string
+          - hint: 'Original text: Inscriptions, key: -6372c45'
+            label: Text
+            name: '-6372c45'
+            widget: string
+          - hint: 'Original text: soon, key: 35f53b'
+            label: Text
+            name: 35f53b
+            widget: string
+          - hint: 'Original text: Questions, key: d37612d'
+            label: Text
+            name: d37612d
+            widget: string
+          - hint: 'Original text: Contact, key: -64104400'
+            label: Text
+            name: '-64104400'
+            widget: string
+          - hint: 'Original text: Ville de Sierre,, key: -810071b'
+            label: Text
+            name: '-810071b'
+            widget: string
+          - hint: 'Original text: la cité du Soleil, key: 70fbd4d'
+            label: Text
+            name: 70fbd4d
+            widget: string
+          - hint: 'Original text: A à Z, key: 3a5d0bb'
+            label: Text
+            name: 3a5d0bb
+            widget: string
+          - hint: 'Original text: Highlight, key: 4ed7ac94'
+            label: Text
+            name: 4ed7ac94
+            widget: string
+          - hint: 'Original text: Infos utiles, key: -1ffa40b5'
+            label: Text
+            name: '-1ffa40b5'
+            widget: string
+          - hint: 'Original text: Art & Culture, key: -5e718e09'
+            label: Text
+            name: '-5e718e09'
+            widget: string
+          - hint: 'Original text: Etapes de la vie, key: 2825f6b2'
+            label: Text
+            name: 2825f6b2
+            widget: string
+          - hint: 'Original text: Sierre, key: -6c667cea'
+            label: Text
+            name: '-6c667cea'
+            widget: string
+          - hint: 'Original text: Education & Formation, key: 6d687c7f'
+            label: Text
+            name: 6d687c7f
+            widget: string
+          - hint: 'Original text: Travail, key: 23a1ed11'
+            label: Text
+            name: 23a1ed11
+            widget: string
+          - hint: 'Original text: Habitat, key: -7422c779'
+            label: Text
+            name: '-7422c779'
+            widget: string
+          - hint: 'Original text: Transports, key: 106dca8a'
+            label: Text
+            name: 106dca8a
+            widget: string
+          - hint: 'Original text: Santé & Social, key: -23f5322e'
+            label: Text
+            name: '-23f5322e'
+            widget: string
+          - hint: 'Original text: Sport & Loisirs, key: 41f55f77'
+            label: Text
+            name: 41f55f77
+            widget: string
+          - hint: 'Original text: Intégration, key: 387140b0'
+            label: Text
+            name: 387140b0
+            widget: string
+          - hint: 'Original text: feat, key: 2fe532'
+            label: Text
+            name: 2fe532
+            widget: string
+          - hint: >-
+              Original text: Des mots chaleureux de nos citoyens Sierrois, key:
+              -15a72dfc
+            label: Text
+            name: '-15a72dfc'
+            widget: string
+          - hint: 'Original text: Prendre contact, key: -48bda494'
+            label: Text
+            name: '-48bda494'
+            widget: string
+          - hint: 'Original text: 4.9/5, key: 2f28b25'
+            label: Text
+            name: 2f28b25
+            widget: string
+          - hint: 'Original text:  (4), key: f287d'
+            label: Text
+            name: f287d
+            widget: string
+          - hint: 'Original text: 027 452 02 34, key: -1298d1bb'
+            label: Text
+            name: '-1298d1bb'
+            widget: string
+          - hint: 'Original text: Mentions légales, key: -68d80214'
+            label: Text
+            name: '-68d80214'
+            widget: string
+          - hint: 'Original text: © , key: 1497'
+            label: Text
+            name: '1497'
+            widget: string
+          - hint: 'Original text: 2024, key: 177500'
+            label: Text
+            name: '177500'
+            widget: string
+          - hint: 'Original text:  SIERRETAKEUIL.CH, key: -35ea2348'
+            label: Text
+            name: '-35ea2348'
+            widget: string
+          - hint: 'Original text: Design, key: 79ceadde'
+            label: Text
+            name: 79ceadde
+            widget: string
+          - hint: 'Original text: anthonysalamin.ch, key: -67104443'
+            label: Text
+            name: '-67104443'
+            widget: string
+          - hint: 'Original text: Password, key: 4c641ebb'
+            label: Text
+            name: 4c641ebb
+            widget: string
+          - hint: >-
+              Original text: Incorrect password. Please try again., key:
+              -f5c4b5f
+            label: Text
+            name: '-f5c4b5f'
+            widget: string
+          - hint: 'Original text: Oops, erreur, key: -6bd4b24c'
+            label: Text
+            name: '-6bd4b24c'
+            widget: string
+          - hint: >-
+              Original text: Contactez votre administrateur pour plus de
+              détails., key: 18a72682
+            label: Text
+            name: 18a72682
+            widget: string
+          - hint: 'Original text: En cliquant sur , key: -5767796a'
+            label: Text
+            name: '-5767796a'
+            widget: string
+          - hint: 'Original text: "Accepter", key: 6af87d0b'
+            label: Text
+            name: 6af87d0b
+            widget: string
+          - hint: >-
+              Original text: , vous acceptez que tous les cookies soient stockés
+              sur votre appareil afin d'améliorer la navigation sur le site.
+              Consultez notre , key: 3276fd0
+            label: Text
+            name: 3276fd0
+            widget: text
+          - hint: 'Original text: Politique de Confidentialité, key: 1549a127'
+            label: Text
+            name: 1549a127
+            widget: string
+          - hint: 'Original text:  pour plus d''informations., key: 1442d302'
+            label: Text
+            name: 1442d302
+            widget: string
+          - hint: 'Original text: Préférences, key: -6bfbaf20'
+            label: Text
+            name: '-6bfbaf20'
+            widget: string
+          - hint: 'Original text: Refuser, key: -5c134542'
+            label: Text
+            name: '-5c134542'
+            widget: string
+          - hint: 'Original text: Accepter, key: -7c16fc2b'
+            label: Text
+            name: '-7c16fc2b'
+            widget: string
+          - hint: >-
+              Original text: Centre de préférences pour la politique de
+              protection de la vie privée, key: 2dc7a23e
+            label: Text
+            name: 2dc7a23e
+            widget: string
+          - hint: >-
+              Original text: Lorsque vous visitez des sites web, ceux-ci peuvent
+              stocker ou récupérer des données dans votre navigateur. Ce
+              stockage est souvent nécessaire pour la fonctionnalité de base du
+              site web. Il peut être utilisé à des fins de marketing, d'analyse
+              et de personnalisation du site, par exemple pour enregistrer vos
+              préférences. La protection de la vie privée est importante pour
+              nous, c'est pourquoi vous avez la possibilité de désactiver
+              certains types de stockage qui ne sont pas nécessaires au
+              fonctionnement de base du site web. Le blocage de certaines
+              catégories peut avoir un impact sur votre expérience du site web.,
+              key: 5719b980
+            label: Text
+            name: 5719b980
+            widget: text
+          - hint: 'Original text: Rejeter tous les cookies, key: -1bb35ed1'
+            label: Text
+            name: '-1bb35ed1'
+            widget: string
+          - hint: 'Original text: Accepter tous les cookies, key: -79c29fd3'
+            label: Text
+            name: '-79c29fd3'
+            widget: string
+          - hint: >-
+              Original text: Gérer les préférences en matière de consentement
+              par catégorie, key: 351868e0
+            label: Text
+            name: '351868e0'
+            widget: string
+          - hint: 'Original text: Essentiel, key: 16a393aa'
+            label: Text
+            name: 16a393aa
+            widget: string
+          - hint: 'Original text: Toujours actif, key: -5c954f1a'
+            label: Text
+            name: '-5c954f1a'
+            widget: string
+          - hint: >-
+              Original text: Ces éléments sont nécessaires pour permettre le
+              fonctionnement de base du site web., key: -7b9165df
+            label: Text
+            name: '-7b9165df'
+            widget: string
+          - hint: 'Original text: Marketing, key: 3fc9ea06'
+            label: Text
+            name: 3fc9ea06
+            widget: string
+          - hint: 'Original text: Essential, key: 16a3932e'
+            label: Text
+            name: 16a3932e
+            widget: string
+          - hint: >-
+              Original text: Ces éléments sont utilisés pour diffuser des
+              publicités plus pertinentes pour vous et vos centres d'intérêt.
+              Ils peuvent également être utilisés pour limiter le nombre de fois
+              que vous voyez une publicité et mesurer l'efficacité des campagnes
+              publicitaires. Les réseaux publicitaires les placent généralement
+              avec l'autorisation de l'exploitant du site web., key: -7979fb1e
+            label: Text
+            name: '-7979fb1e'
+            widget: text
+          - hint: 'Original text: Personnalisation, key: 6fc5ea07'
+            label: Text
+            name: 6fc5ea07
+            widget: string
+          - hint: >-
+              Original text: Ces éléments permettent au site web de se souvenir
+              des choix que vous faites (tels que votre nom d'utilisateur, votre
+              langue ou la région dans laquelle vous vous trouvez) et de fournir
+              des fonctions améliorées et plus personnelles. Par exemple, un
+              site web peut vous fournir des bulletins météorologiques locaux ou
+              des informations sur la circulation en stockant des données sur
+              votre position actuelle., key: -1d143c52
+            label: Text
+            name: '-1d143c52'
+            widget: text
+          - hint: 'Original text: Analyse, key: 2fb3f453'
+            label: Text
+            name: 2fb3f453
+            widget: string
+          - hint: >-
+              Original text: Ces éléments aident l'opérateur du site web à
+              comprendre comment son site fonctionne, comment les visiteurs
+              interagissent avec le site et s'il y a des problèmes techniques.
+              Ce type de stockage ne recueille généralement pas d'informations
+              permettant d'identifier un visiteur., key: -46635a4
+            label: Text
+            name: '-46635a4'
+            widget: text
+          - hint: 'Original text: Confirmer mes préférences et fermer, key: -c5b78c0'
+            label: Text
+            name: '-c5b78c0'
+            widget: string
+          - hint: 'Original text: Mise à jour le, key: -1cec741b'
+            label: Text
+            name: '-1cec741b'
+            widget: string
+          - hint: >-
+              Original text: Je déclare avoir pris connaissance, compris et
+              accepté la , key: -5ff0af03
+            label: Text
+            name: '-5ff0af03'
+            widget: string
+          - hint: 'Original text:  de Sierretakeuil., key: -2a85c5ae'
+            label: Text
+            name: '-2a85c5ae'
+            widget: string
+          - hint: >-
+              Original text: Merci, nous vous contacterons dès que possible !,
+              key: -932f5c1
+            label: Text
+            name: '-932f5c1'
+            widget: string
+          - hint: 'Original text: Journée du 29 Septembre 2022, key: -6e81cff7'
+            label: Text
+            name: '-6e81cff7'
+            widget: string
+          - hint: >-
+              Original text: Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit. Suspendisse varius enim in eros elementum tristique. Duis
+              cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
+              commodo diam libero vitae erat. Aenean faucibus nibh et justo
+              cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus
+              tristique posuere., key: -5286fc08
+            label: Text
+            name: '-5286fc08'
+            widget: text
+          - hint: 'Original text: Name, key: 24eeab'
+            label: Text
+            name: 24eeab
+            widget: string
+          - hint: 'Original text: Email Address, key: -2b7010d0'
+            label: Text
+            name: '-2b7010d0'
+            widget: string
+          - hint: >-
+              Original text: Thank you! Your submission has been received!, key:
+              5a0ea5a1
+            label: Text
+            name: 5a0ea5a1
+            widget: string
+          - hint: >-
+              Original text: Oops! Something went wrong while submitting the
+              form., key: -7c112e99
+            label: Text
+            name: '-7c112e99'
+            widget: string
+          - hint: 'Original text: Merci !, key: -63f1b05f'
+            label: Text
+            name: '-63f1b05f'
+            widget: string
+          - hint: 'Original text: Oops., key: 48d688b'
+            label: Text
+            name: 48d688b
+            widget: string
+          - hint: 'Original text: , la cité du soleil 🌞, key: -49db257'
+            label: Text
+            name: '-49db257'
+            widget: string
+          - hint: 'Original text: Featuring, key: 5e61d213'
+            label: Text
+            name: 5e61d213
+            widget: string
+          - hint: >-
+              Original text: Politique de confidentialité de sierretakeuil.ch,
+              key: 21a535de
+            label: Text
+            name: 21a535de
+            widget: string
+          - hint: 'Original text: Dernière mise à jour : 4 juin 2023, key: 1db58120'
+            label: Text
+            name: 1db58120
+            widget: string
+          - hint: >-
+              Original text: SIERRETAKEUIL.CH S'ENGAGE À PROTÉGER LA VIE PRIVÉE
+              ET LES INFORMATIONS PERSONNELLES DES VISITEURS DE SON SITE
+              INTERNET. LA PRÉSENTE POLITIQUE DE CONFIDENTIALITÉ DÉCRIT LA
+              MANIÈRE DONT NOUS RECUEILLONS, UTILISONS ET PROTÉGEONS VOS
+              INFORMATIONS LORSQUE VOUS VISITEZ NOTRE SITE WEB SIERRETAKEUIL.CH.
+              EN ACCÉDANT À NOTRE SITE WEB ET EN L'UTILISANT, VOUS ACCEPTEZ LES
+              CONDITIONS ET PRATIQUES DÉCRITES DANS CETTE POLITIQUE DE
+              CONFIDENTIALITÉ., key: d7566df
+            label: Text
+            name: d7566df
+            widget: text
+          - hint: >-
+              Original text: Les informations que nous recueillons :, key:
+              7cfdc76
+            label: Text
+            name: 7cfdc76
+            widget: string
+          - hint: >-
+              Original text: Lorsque vous visitez notre site web, nous pouvons
+              collecter certaines informations, notamment :, key: -268319bb
+            label: Text
+            name: '-268319bb'
+            widget: text
+          - hint: >-
+              Original text: Informations personnelles : Nous pouvons recueillir
+              des informations personnelles, telles que votre nom, votre adresse
+              électronique et vos coordonnées, uniquement si vous nous les
+              fournissez volontairement par le biais de formulaires de contact
+              ou de fonctions d'abonnement., key: -5afa620f
+            label: Text
+            name: '-5afa620f'
+            widget: text
+          - hint: >-
+              Original text: Informations relatives à l'utilisation : Nous
+              pouvons recueillir des informations non personnellement
+              identifiables sur votre interaction avec notre site web, telles
+              que votre adresse IP, votre type de navigateur, des informations
+              sur votre appareil, les pages visitées et l'URL de référence. Ces
+              informations sont collectées par le biais de cookies et de
+              technologies similaires et sont utilisées pour analyser les
+              tendances d'utilisation du site web et améliorer nos services.,
+              key: 33522c64
+            label: Text
+            name: 33522c64
+            widget: text
+          - hint: 'Original text: Utilisation des informations :, key: -177bcf3a'
+            label: Text
+            name: '-177bcf3a'
+            widget: string
+          - hint: >-
+              Original text: Nous pouvons utiliser les informations collectées
+              aux fins suivantes :, key: e393a3e
+            label: Text
+            name: e393a3e
+            widget: string
+          - hint: >-
+              Original text: Fournir et améliorer nos services : Nous pouvons
+              utiliser vos informations personnelles pour répondre à vos
+              demandes, vous fournir les informations demandées et vous proposer
+              un contenu pertinent et des mises à jour concernant nos services.,
+              key: 742430a5
+            label: Text
+            name: 742430a5
+            widget: text
+          - hint: >-
+              Original text: Améliorer l'expérience du site web : Nous pouvons
+              utiliser les informations d'utilisation pour analyser les
+              performances du site web, suivre les préférences des utilisateurs
+              et optimiser la fonctionnalité, la sécurité et le contenu de notre
+              site web., key: 2661f7e2
+            label: Text
+            name: 2661f7e2
+            widget: text
+          - hint: >-
+              Original text: Pour communiquer avec vous : Nous pouvons utiliser
+              vos coordonnées pour vous envoyer des notifications
+              administratives, des mises à jour, des bulletins d'information,
+              des communications marketing et d'autres informations relatives à
+              sierretakeuil.ch. Vous pouvez à tout moment refuser de recevoir
+              ces communications., key: c1833b
+            label: Text
+            name: c1833b
+            widget: text
+          - hint: 'Original text: Partage d''informations :, key: 26648fb8'
+            label: Text
+            name: 26648fb8
+            widget: string
+          - hint: >-
+              Original text: Nous respectons votre vie privée et ne divulguerons
+              pas vos informations personnelles à des tiers, sauf si la loi
+              l'exige ou si vous y consentez. Toutefois, nous pouvons partager
+              des informations non personnellement identifiables à des fins
+              d'analyse ou de marketing avec des prestataires de services tiers
+              de confiance., key: -576957ba
+            label: Text
+            name: '-576957ba'
+            widget: text
+          - hint: 'Original text: Sécurité des données :, key: -669daf54'
+            label: Text
+            name: '-669daf54'
+            widget: string
+          - hint: >-
+              Original text: Nous utilisons des mesures de sécurité conformes
+              aux normes industrielles pour protéger vos informations
+              personnelles contre l'accès, la divulgation, l'altération ou la
+              destruction non autorisés. Toutefois, veuillez noter qu'aucune
+              transmission de données sur l'internet ou méthode de stockage
+              électronique n'est totalement sûre. Nous ne pouvons donc pas
+              garantir la sécurité absolue de vos informations., key: -636156ec
+            label: Text
+            name: '-636156ec'
+            widget: text
+          - hint: 'Original text: Liens externes :, key: 172ef8bb'
+            label: Text
+            name: 172ef8bb
+            widget: string
+          - hint: >-
+              Original text: Notre site web peut contenir des liens vers des
+              sites web de tiers pour votre commodité et votre information. Ces
+              sites web externes fonctionnent de manière indépendante et ont
+              leur propre politique de confidentialité. Nous n'avons aucun
+              contrôle sur leur contenu ou leurs pratiques et, par conséquent,
+              nous ne sommes pas responsables des pratiques en matière de
+              protection de la vie privée ou du contenu de ces sites web., key:
+              -56665a75
+            label: Text
+            name: '-56665a75'
+            widget: text
+          - hint: >-
+              Original text: Modifications de la politique de confidentialité :,
+              key: 2b8fabf6
+            label: Text
+            name: 2b8fabf6
+            widget: string
+          - hint: >-
+              Original text: Nous nous réservons le droit de modifier ou de
+              mettre à jour la présente politique de confidentialité à tout
+              moment. Toute modification entrera en vigueur dès la publication
+              de la version mise à jour sur notre site web. Nous vous
+              encourageons à consulter régulièrement la présente politique de
+              confidentialité afin de rester informé de la manière dont nous
+              collectons, utilisons et protégeons vos informations., key:
+              3c2da67a
+            label: Text
+            name: 3c2da67a
+            widget: text
+          - hint: 'Original text: Contactez-nous :, key: 5ed38491'
+            label: Text
+            name: 5ed38491
+            widget: string
+          - hint: >-
+              Original text: Si vous avez des questions, des préoccupations ou
+              des demandes concernant la présente politique de confidentialité
+              ou nos pratiques en matière de confidentialité, veuillez nous
+              contacter à l'adresse suivante : sandrine.rudaz@sierre.ch, key:
+              -7d53e9d7
+            label: Text
+            name: '-7d53e9d7'
+            widget: text
+          - hint: >-
+              Original text: EN UTILISANT NOTRE SITE WEB, VOUS RECONNAISSEZ
+              AVOIR LU ET COMPRIS LA PRÉSENTE POLITIQUE DE PROTECTION DE LA VIE
+              PRIVÉE ET CONSENTEZ À LA COLLECTE, À L'UTILISATION ET À LA
+              DIVULGATION DE VOS INFORMATIONS COMME DÉCRIT DANS LE PRÉSENT
+              DOCUMENT., key: 3c60d3b
+            label: Text
+            name: 3c60d3b
+            widget: text
+          - hint: 'Original text: Obtenir la photo, key: 40c96554'
+            label: Text
+            name: 40c96554
+            widget: string
+          - hint: >-
+              Original text: J'accepte la politique de confidentialité de
+              sierretakeuil.ch, key: 60904589
+            label: Text
+            name: '60904589'
+            widget: string
+          - hint: >-
+              Original text: Merci, nous vous contacterons dès que possible.,
+              key: 187a3a30
+            label: Text
+            name: 187a3a30
+            widget: string
+          - hint: 'Original text: Merci, key: 46cb3a0'
+            label: Text
+            name: 46cb3a0
+            widget: string
+          - hint: >-
+              Original text: , nous vous contacterons dès que possible !, key:
+              -1ab63e21
+            label: Text
+            name: '-1ab63e21'
+            widget: string
+          - hint: 'Original text: COURS DE LANGUES ÉTRANGÈRES, key: 1c1c263f'
+            label: Text
+            name: 1c1c263f
+            widget: string
+          - hint: 'Original text: Global Formations, key: -44f99581'
+            label: Text
+            name: '-44f99581'
+            widget: string
+          - hint: >-
+              Original text: Global Formations est un centre de soutien scolaire
+              et d’apprentissage des langues au centre de la ville de Sierre.
+              Dans nos salles aménagées, nous vous proposons un accompagnement
+              de qualité sur mesure et des cours variés en fonction de vos
+              besoins. Notre objectif est de permettre à chacun de découvrir ses
+              ressources et de révéler ses potentiels afin d’apprendre pour la
+              vie !, key: -3d1bfcbe
+            label: Text
+            name: '-3d1bfcbe'
+            widget: text
+          - hint: >-
+              Original text: Adresse : Avenue Général Guisan 2, 3960 Sierre,
+              key: 24fea1f0
+            label: Text
+            name: 24fea1f0
+            widget: string
+          - hint: "Original text: M\uFEFFartine Caloz Emery 076 530 16 80, key: -1aa460c0"
+            label: Text
+            name: '-1aa460c0'
+            widget: string
+          - hint: 'Original text: Stève Emery 078 605 77 81, key: -440794e1'
+            label: Text
+            name: '-440794e1'
+            widget: string
+          - hint: "Original text: E\uFEFF-mail: , key: -19bc3b10"
+            label: Text
+            name: '-19bc3b10'
+            widget: string
+          - hint: 'Original text: info@global-formations.ch, key: 16f9f799'
+            label: Text
+            name: 16f9f799
+            widget: string
+          - hint: 'Original text: Site Internet : , key: 4d4da90c'
+            label: Text
+            name: 4d4da90c
+            widget: string
+          - hint: 'Original text: https://global-formations.ch, key: c56d096'
+            label: Text
+            name: c56d096
+            widget: string
+          - hint: 'Original text: Ecole Alpha Academy, key: -4315430c'
+            label: Text
+            name: '-4315430c'
+            widget: string
+          - hint: >-
+              Original text: L'École Alpha Academy propose des cours de langues
+              aux adultes et aux enfants. Les langues sont les suivantes:
+              français, allemand, italien, anglais, espagnol, russe, chinois,
+              japonais, serbo-croate, portugais et arabe., key: 678caae7
+            label: Text
+            name: 678caae7
+            widget: text
+          - hint: >-
+              Original text: Adresse : Château de Glarey, Rue du Simplon 35.
+              3960 Sierre, key: -3912bfb5
+            label: Text
+            name: '-3912bfb5'
+            widget: string
+          - hint: 'Original text: Téléphone : 027 456 33 38, key: 17fc4985'
+            label: Text
+            name: 17fc4985
+            widget: string
+          - hint: 'Original text: ‍E-mail : , key: 6bf73a'
+            label: Text
+            name: 6bf73a
+            widget: string
+          - hint: 'Original text: ecolealpha@netplus.ch, key: 203601e8'
+            label: Text
+            name: '203601e8'
+            widget: string
+          - hint: 'Original text: ‍Site Internet : , key: -5e51f0e7'
+            label: Text
+            name: '-5e51f0e7'
+            widget: string
+          - hint: 'Original text: la-schola-76.webself.net, key: 3be6f949'
+            label: Text
+            name: 3be6f949
+            widget: string
+          - hint: >-
+              Original text: COURS DE LANGUE ET DE CULTURE D'ORIGINE - LCO, key:
+              -514670f8
+            label: Text
+            name: '-514670f8'
+            widget: string
+          - hint: 'Original text: Cours LCO en portugais, key: 50afa03f'
+            label: Text
+            name: 50afa03f
+            widget: string
+          - hint: >-
+              Original text: Les enfants peuvent suivre la scolarité dans leur
+              langue d'origine à partir de la 3ème année Harmos., key: -5978cad5
+            label: Text
+            name: '-5978cad5'
+            widget: text
+          - hint: >-
+              Original text: Lieu des cours : Ecole de Beaulieu, 3960 Sierre,
+              key: 2f31c472
+            label: Text
+            name: 2f31c472
+            widget: string
+          - hint: >-
+              Original text: Début des cours : l'enseignement commence au début
+              de l'année scolaire en août et suit le planning scolaire de la
+              Ville., key: 69d8b495
+            label: Text
+            name: 69d8b495
+            widget: text
+          - hint: >-
+              Original text: Horaires des cours : en fin d'après-midi après
+              l'école. La durée est de deux à trois heures de cours par
+              semaine., key: 4be63195
+            label: Text
+            name: 4be63195
+            widget: text
+          - hint: >-
+              Original text: Fréquentation des cours : une fois que l'enfant est
+              inscrit, la fréquentation aux cours devient obligatoire., key:
+              4c9b8132
+            label: Text
+            name: 4c9b8132
+            widget: text
+          - hint: >-
+              Original text: Prix : cotisation annuelle de 100 euros. Ce prix
+              comprend le manuel et l'examen pour la certification des
+              compétences à la fin de chaque niveau., key: -275e6f93
+            label: Text
+            name: '-275e6f93'
+            widget: text
+          - hint: >-
+              Original text: Inscriptions et informations : Serviços de Ensino
+              de Genebra, Consulado-Geral de Portugal em Genebra, key: 767401b8
+            label: Text
+            name: 767401b8
+            widget: text
+          - hint: >-
+              Original text: Adresse : Route de Ferney 220, 1218 Grand Saconnex,
+              key: 5f98fb75
+            label: Text
+            name: 5f98fb75
+            widget: string
+          - hint: 'Original text: Téléphone : 022 920 40 50, key: -602138c4'
+            label: Text
+            name: '-602138c4'
+            widget: string
+          - hint: 'Original text: E-mail : segeneve@epesuica.ch, key: -46072b9b'
+            label: Text
+            name: '-46072b9b'
+            widget: string
+          - hint: 'Original text: www.epesuica.ch, key: -4e8c58af'
+            label: Text
+            name: '-4e8c58af'
+            widget: string
+          - hint: 'Original text: Cours LCO en italien, key: 257c90e3'
+            label: Text
+            name: 257c90e3
+            widget: string
+          - hint: >-
+              Original text: I corsi sono riservati a tuttii bambini e le
+              bambine della scuola primaria a partire dai 6/7 anni (3 P HarmoS-
+              École Primaire) e a tutti i ragazzi e le ragazze della scuola
+              secondaria di Ie II grado italiana (Cycle d’orientation/Collège).,
+              key: -43ebb612
+            label: Text
+            name: '-43ebb612'
+            widget: text
+          - hint: >-
+              Original text: Sede e contattidell’Ufficio scuola : Consolato
+              Generale d'Italiaa Ginevra Ufficio Scuola Rue Charles-Galland 14,
+              1206 Ginevra, key: -2e18f045
+            label: Text
+            name: '-2e18f045'
+            widget: text
+          - hint: >-
+              Original text: Téléphone : Dirigente Scolastico 022 839 67 48,
+              key: 21c29c56
+            label: Text
+            name: 21c29c56
+            widget: string
+          - hint: >-
+              Original text: Téléphone : Segreteria/DSGA 022 83967 49, key:
+              78694359
+            label: Text
+            name: '78694359'
+            widget: string
+          - hint: 'Original text: E-mail : scuola.ginevra@esteri.it, key: -2656c379'
+            label: Text
+            name: '-2656c379'
+            widget: string
+          - hint: 'Original text: www.cpsi.ch, key: -6a9af6a7'
+            label: Text
+            name: '-6a9af6a7'
+            widget: string
+          - hint: 'Original text: Cours LCO en arabe, key: -130d5b46'
+            label: Text
+            name: '-130d5b46'
+            widget: string
+          - hint: >-
+              Original text: Les cours sont proposés aux enfants de 6 à 11 ans.,
+              key: 7bd5281f
+            label: Text
+            name: 7bd5281f
+            widget: string
+          - hint: >-
+              Original text: Horaires des cours : tous les mercredis après-midi,
+              hors vacances scolaires, de 13h00 à 16h00, key: -1c914065
+            label: Text
+            name: '-1c914065'
+            widget: text
+          - hint: >-
+              Original text: Lieu des cours : Maison des cultures - Le Cairn,
+              Avenue des Ecoles 6 (sous la salle de la Sacoche), Sierre, key:
+              1047d940
+            label: Text
+            name: 1047d940
+            widget: text
+          - hint: >-
+              Original text: Prix : CHF 35.– par enfant et par mois, key:
+              -bc46e76
+            label: Text
+            name: '-bc46e76'
+            widget: string
+          - hint: >-
+              Original text: ‍Inscriptions et informations : Madame Dania Ali,
+              key: -1fbfb52a
+            label: Text
+            name: '-1fbfb52a'
+            widget: string
+          - hint: >-
+              Original text: Téléphone : 077 958 69 50 (de 17h à 19h), key:
+              -4d12451c
+            label: Text
+            name: '-4d12451c'
+            widget: string
+          - hint: 'Original text: Welcome, key: -5347ccbe'
+            label: Text
+            name: '-5347ccbe'
+            widget: string
+          - hint: 'Original text: Bienvenue à , key: -59105a1f'
+            label: Text
+            name: '-59105a1f'
+            widget: string
+      - label: Links
+        name: links
+        file: cms/_data/links.json
+        fields:
+          - label: Title
+            name: title
+            widget: hidden
+            default: Links
+          - hint: 'Original link: /, key: 2f'
+            label: Link
+            name: 2f
+            widget: string
+          - hint: 'Original link: https://www.sierre.ch/, key: -26209948'
+            label: Link
+            name: '-26209948'
+            widget: string
+          - hint: 'Original link: /inscriptions/, key: -789587db'
+            label: Link
+            name: '-789587db'
+            widget: string
+          - hint: 'Original link: /questions/, key: 78dfb9f1'
+            label: Link
+            name: 78dfb9f1
+            widget: string
+          - hint: 'Original link: /contact/, key: 16bdc13e'
+            label: Link
+            name: 16bdc13e
+            widget: string
+          - hint: 'Original link: #info, key: 21e9b51'
+            label: Link
+            name: 21e9b51
+            widget: string
+          - hint: 'Original link: #, key: 23'
+            label: Link
+            name: '23'
+            widget: string
+          - hint: 'Original link: tel:+41274520234, key: -54f1e69a'
+            label: Link
+            name: '-54f1e69a'
+            widget: string
+          - hint: 'Original link: /mentions-legales/, key: -4560e6e3'
+            label: Link
+            name: '-4560e6e3'
+            widget: string
+          - hint: >-
+              Original link: mailto:sandrine.rudaz@sierre.ch?subject=Contact,
+              key: -2ea8a6ed
+            label: Link
+            name: '-2ea8a6ed'
+            widget: string
+          - hint: 'Original link: https://anthonysalamin.ch/fr/, key: 59c9fc22'
+            label: Link
+            name: 59c9fc22
+            widget: string
+          - hint: >-
+              Original link:
+              https://sierretakeuil.ch/info/cours-de-langues/info@global-formations.ch,
+              key: -330ecb71
+            label: Link
+            name: '-330ecb71'
+            widget: string
+          - hint: 'Original link: https://global-formations.ch/, key: 7e834259'
+            label: Link
+            name: '7e834259'
+            widget: string
+          - hint: 'Original link: mailto:ecolealpha@netplus.ch, key: -420c7520'
+            label: Link
+            name: '-420c7520'
+            widget: string
+          - hint: >-
+              Original link: http://la-schola-76.webself.net/ecole-de-langues,
+              key: -41cc3300
+            label: Link
+            name: '-41cc3300'
+            widget: string
+          - hint: >-
+              Original link: https://www.epesuica.ch/contact.shtml, key:
+              -b878b5d
+            label: Link
+            name: '-b878b5d'
+            widget: string
+          - hint: 'Original link: https://www.cpsi.ch/, key: -4f61f1bb'
+            label: Link
+            name: '-4f61f1bb'
+            widget: string
+      - label: Images
+        name: images
+        file: cms/_data/images.json
+        fields:
+          - label: Title
+            name: title
+            widget: hidden
+            default: Images
+          - label: Image
+            name: 58e90f98
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '92e335'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-6580f28c'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-3e167b83'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '-42f25b7d'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+          - label: Image
+            name: '0'
+            widget: object
+            fields:
+              - name: url
+                label: Image Url
+                widget: image
+                allow_multiple: false
+                required: false
+              - name: alt
+                label: Image Alt
+                widget: string
+                required: false
+publish_mode: editorial_workflow
