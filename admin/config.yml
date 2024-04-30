@@ -648,7 +648,7 @@ collections:
         required: false
       - hint: Ratio 16:9, @72dpi @max 200ko au format jpg
         name: f_image-2
-        label: Image au format 16:9
+        label: Image au format 3:4
         widget: object
         required: false
         fields:
@@ -777,6 +777,12 @@ collections:
           - hint: 'Original text: No items found., key: 3d503d2b'
             label: Text
             name: 3d503d2b
+            widget: string
+          - hint: >-
+              Original text: Action requise, veuillez contacter votre admin.,
+              key: 7b825fbe
+            label: Text
+            name: 7b825fbe
             widget: string
           - hint: 'Original text: Ville de Sierre, key: 10418c27'
             label: Text
@@ -1138,9 +1144,9 @@ collections:
             label: Text
             name: 21a535de
             widget: string
-          - hint: 'Original text: Dernière mise à jour : 4 juin 2023, key: 1db58120'
+          - hint: 'Original text: ‍, key: 200d'
             label: Text
-            name: 1db58120
+            name: 200d
             widget: string
           - hint: >-
               Original text: SIERRETAKEUIL.CH S'ENGAGE À PROTÉGER LA VIE PRIVÉE

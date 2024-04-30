@@ -253,7 +253,7 @@ animation-play-state: paused;
           {%- assign collection = collections.photos | sort: "-created-on" -%}<div class="collection-list-wrapper w-dyn-list">
             {%- unless collection.length == 0 -%}<div role="list" class="w-dyn-items">
               {%- for item in collection -%}<div role="listitem" class="w-dyn-item">
-                <h2 class="">{{ item.data.title }}</h2><img alt="{{ images.0.alt | escape }}" loading="lazy" data-sizes="[{&quot;max&quot;:479,&quot;size&quot;:&quot;87vw&quot;},{&quot;max&quot;:991,&quot;size&quot;:&quot;92vw&quot;},{&quot;max&quot;:10000,&quot;size&quot;:&quot;78vw&quot;}]" src="{{ item.data.f_photo.url }}" class="">
+                <h2 class="">{{ item.data.title }}</h2><img loading="lazy" data-sizes="[{&quot;max&quot;:479,&quot;size&quot;:&quot;87vw&quot;},{&quot;max&quot;:991,&quot;size&quot;:&quot;92vw&quot;},{&quot;max&quot;:10000,&quot;size&quot;:&quot;78vw&quot;}]" src="{{ item.data.f_photo.url }}" alt="{{ images.0.alt | escape }}" class="">
                 <p class="">{{ item.data.f_descriptions }}</p>
               </div>{%- endfor -%}
             </div>{%- endunless -%}

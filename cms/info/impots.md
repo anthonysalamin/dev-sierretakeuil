@@ -1,9 +1,9 @@
 ---
 title: Impôts
 slug: impots
-updated-on: '2023-06-14T21:23:23.912Z'
+updated-on: '2024-04-18T01:34:42.563Z'
 created-on: '2019-08-19T12:04:28.740Z'
-published-on: '2024-02-21T12:20:54.561Z'
+published-on: '2024-04-18T01:49:42.090Z'
 f_couleur: cms/categories/explicabo-beatae-dolorum-aperiam.md
 f_tag-2: système fiscal
 f_tag-3: service des contributions
@@ -19,7 +19,7 @@ f_contenu: >-
   Les **impôts directs** figurent parmi les plus importants pour l'État : impôts
   sur le revenu, sur la fortune, mais aussi sur le bénéfice et le capital.
 
-    
+
   Il existe aussi des **impôts indirects**. Parmi eux, il y a :
 
 
@@ -51,7 +51,7 @@ f_contenu: >-
   et cantonaux –, mais aussi à la Confédération – il s'agit des impôts fédéraux
   directs.
 
-    
+
   Le système fiscal est organisé de telle sorte que la plupart des personnes
   doivent remplir une déclaration fiscale une fois par an. Ils y indiquent
   combien ils ont gagné au cours de l'année qui vient de s'écouler et à combien
@@ -59,7 +59,7 @@ f_contenu: >-
   fiscales locales. Elles calculent le montant de l'impôt et émettent un avis de
   recouvrement.
 
-    
+
   La Suisse a par ailleurs instauré **l'impôt à la source pour certaines
   personnes étrangères**. Il est directement déduit du salaire par l’employeur
   et versé au bénéfice des autorités fiscales. Sont concernés tous les migrants
@@ -73,7 +73,7 @@ f_contenu: >-
   Afin d'éviter que les migrants soient taxés deux fois - en Suisse et dans leur
   pays d'origine - la Suisse a signé une convention de double imposition avec
   plus de 50 pays. Ces conventions jouent également un rôle important en matière
-  de soustraction d'impôts.  
+  de soustraction d'impôts.
 
 
   Toute personne résidant en Valais a l'obligation de payer des impôts à partir
@@ -101,11 +101,10 @@ f_contenu: >-
   **Service cantonal des contributions**
 
 
-  **Adresse :** Avenue de la Gare 35, Case postale 351, 1951 Sion
+  **Adresse :** Avenue de la Gare 35, Case postale 638, 1951 Sion
 
 
-  **Horaires :** du lundi au vendredi de 9h00 à 11h00 et de 14h00 à 17h00.
-  Veilles de fête fermeture à 16h00.
+  **Horaires :** du lundi au vendredi de 8h30 à 11h30
 
 
   **Téléphone :** 027 606 24 50  
@@ -116,11 +115,11 @@ f_contenu: >-
 
   L'adresse mail varie en fonction de votre question. Veuillez donc consulter le
   site :
-  [**www.vs.ch/fr/web/scc/contacts-scc**](https://www.vs.ch/fr/web/scc/contacts-scc)
+  [**www.vs.ch/fr/web/scc/contacts-scc**](https://www.vs.ch/fr/web/scc/contactsscc)
 
 
   **Site Internet :**
-  [**www.vs.ch/fr/web/scc/acceuil**](https://www.vs.ch/fr/web/scc/accueil)
+  [**www.vs.ch/fr/web/scc/accueil**](https://www.vs.ch/fr/web/scc/accueil)
 
 
   ‍
@@ -129,9 +128,6 @@ f_contenu: >-
   Grâce au calculateur de la retenue à la source sur
   [**comparis.ch**](http://fr.comparis.ch/steuern/quellensteuerrechner/default.aspx),
   vous pouvez directement calculer en ligne votre taux d'imposition.
-
-
-  ‍
 f_selection-3: true
 f_image-2:
   url: >-

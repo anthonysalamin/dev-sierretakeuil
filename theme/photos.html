@@ -274,7 +274,7 @@ animation-play-state: paused;
                 <h2 class="heading-3">{{ item.data.title }}</h2>
                 <p class="paragraph">{{ item.data.f_descriptions }}</p>
                 <div class="wrap-img-photo">
-                  <a href="{{ links.23 }}" class="btn-download-photo w-button">{{ texts.40c96554 }}</a><img alt="{{ images.0.alt | escape }}" loading="lazy" data-sizes="[{&quot;max&quot;:10000,&quot;size&quot;:&quot;100vw&quot;}]" src="{{ item.data.f_photo.url }}" class="img-photo">
+                  <a href="{{ links.23 }}" class="btn-download-photo w-button">{{ texts.40c96554 }}</a><img loading="lazy" data-sizes="[{&quot;max&quot;:10000,&quot;size&quot;:&quot;100vw&quot;}]" src="{{ item.data.f_photo.url }}" alt="{{ images.0.alt | escape }}" class="img-photo">
                 </div>
               </div>{%- endfor -%}
             </div>{%- endunless -%}
