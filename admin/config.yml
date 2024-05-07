@@ -778,12 +778,6 @@ collections:
             label: Text
             name: 3d503d2b
             widget: string
-          - hint: >-
-              Original text: Action requise, veuillez contacter votre admin.,
-              key: 7b825fbe
-            label: Text
-            name: 7b825fbe
-            widget: string
           - hint: 'Original text: Ville de Sierre, key: 10418c27'
             label: Text
             name: 10418c27
