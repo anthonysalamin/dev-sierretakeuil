@@ -262,7 +262,7 @@ animation-play-state: paused;
             </div>
             <div class="half right">
               <div class="form-inscription-wrapper w-form">
-                <form id="form-inscription" name="wf-form-Inscription" data-name="inscription" action="https://usebasin.com/f/9b8dd58c881e" method="post" class="form" data-wf-page-id="65d5ea809f8b37118783acd5" data-wf-element-id="77dd7153-1e53-5bd9-1e27-b996a37de8de" data-ajax="true">
+                <form id="form-inscription" name="wf-form-Inscription" data-name="inscription" action="https://usebasin.com/f/9b8dd58c881e" method="post" data-basin-form="true" class="form" data-wf-page-id="65d5ea809f8b37118783acd5" data-wf-element-id="77dd7153-1e53-5bd9-1e27-b996a37de8de" data-ajax="true">
                   <div class="embed-form-name w-embed"><input type="text" name="Inscription" data-name="Inscription" value="{{ title }}"></div><input class="form-field w-input" maxlength="256" name="Nom" data-name="Nom" placeholder="Nom" type="text" id="nom-inscription" required=""><input class="form-field w-input" maxlength="256" name="Pr-nom" data-name="Prénom" placeholder="Prénom" type="text" id="prenom-inscription" required=""><input class="form-field w-input" maxlength="256" name="Email" data-name="Email" placeholder="Email" type="email" id="email-inscription" required=""><textarea id="addresse-inscription" name="Addresse" maxlength="5000" data-name="Addresse" placeholder="Addresse" class="form-field w-input"></textarea><input class="form-field w-input" maxlength="256" name="T-l-phone" data-name="Téléphone" placeholder="Téléphone" type="number" id="telephone-inscription"><input class="form-field w-input" maxlength="256" name="Participant" data-name="Participant" placeholder="Nombre de participant" type="number" id="participant-inscription" required=""><input class="form-field w-input" maxlength="256" name="Traducteur" data-name="Traducteur" placeholder="Traducteur requis ? Préciser la langue." type="text" id="traducteur-inscription"><label class="w-checkbox checkbox-field"><input type="checkbox" name="Acceptation-de-la-politique-de-confidentialit" id="checkbox-question" data-name="Acceptation de la politique de confidentialité" required="" class="w-checkbox-input"><span class="checkbox-label w-form-label" for="Acceptation-de-la-politique-de-confidentialit">{{ texts.-5ff0af03 }}<a href="{{ links.-4560e6e3 }}">{{ texts.1549a127 }}</a>{{ texts.-2a85c5ae }}</span></label><input type="submit" data-wait="Un instant..." class="btn-send w-button" value="Envoyer">
                 </form>
                 <div id="success-message-inscription" class="form-success-message w-form-done">
@@ -939,6 +939,39 @@ function showScrollProgress() {
     window.requestAnimationFrame(scrollStep);
   }
 }
+</script>
+  <script>
+/*
+ * UTILITY | udesly redirect v1
+ * built 10.01.204 @16:23
+ */
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector('[data-basin-form="true"]');
+  if (!form) return;
+  const successURL = `${targetURL()}/success/`;
+  console.log(successURL);
+  observeFormDisplay(form, successURL);
+});
+function targetURL() {
+  const currentURL = window.location.href;
+  // const currentURL = "https://baobabenergy.webflow.io/contact/"; // test
+  function removeTrailingSlash(url) {
+    return url.endsWith("/") ? url.slice(0, -1) : url;
+  }
+  const cleanedURL = removeTrailingSlash(currentURL);
+  const trimmedURL = cleanedURL.slice(0, cleanedURL.lastIndexOf("/"));
+  return trimmedURL;
+}
+function observeFormDisplay(form, successURL) {
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.attributeName === "style" && form.style.display === "none") {
+        window.open(successURL, "_self");
+      }
+    });
+  });
+  observer.observe(form, { attributes: true });
+} // end observeFormDisplay(form)
 </script>
   <script>
 /*
