@@ -276,9 +276,9 @@ collections:
     extension: md
     slug: '{{slug}}'
     fields:
-      - hint: ''
+      - hint: Chaque inscription doit avoir un nom différent
         name: title
-        label: Name
+        label: Nom de l'inscription
         widget: string
         required: true
       - hint: ''
@@ -335,7 +335,9 @@ collections:
         display_fields:
           - title
         multiple: false
-      - hint: Is the inscription in highlight on page load ?
+      - hint: >-
+          cette inscription fait-elle partie des "highlights" si oui, activer le
+          switch 
         name: f_highlight
         label: Highlight
         widget: boolean
@@ -1124,10 +1126,6 @@ collections:
             label: Text
             name: 48d688b
             widget: string
-          - hint: 'Original text: , la cité du soleil 🌞, key: -49db257'
-            label: Text
-            name: '-49db257'
-            widget: string
           - hint: 'Original text: Featuring, key: 5e61d213'
             label: Text
             name: 5e61d213
@@ -1586,6 +1584,10 @@ collections:
           - hint: 'Original text: Bienvenue à , key: -59105a1f'
             label: Text
             name: '-59105a1f'
+            widget: string
+          - hint: 'Original text: , la cité du soleil 🌞, key: -49db257'
+            label: Text
+            name: '-49db257'
             widget: string
       - label: Links
         name: links

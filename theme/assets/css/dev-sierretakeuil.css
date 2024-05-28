@@ -1403,6 +1403,10 @@ blockquote {
   display: block;
 }
 
+.pill-mini.hide {
+  display: none;
+}
+
 .nav__link {
   color: var(--color--body);
   cursor: pointer;
@@ -1829,6 +1833,13 @@ blockquote {
   align-items: center;
   width: 16px;
   margin-bottom: 2px;
+  display: flex;
+}
+
+.div-block-12 {
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: flex-end;
   display: flex;
 }
 

@@ -1,15 +1,15 @@
 ---
 f_date-de-publication: '2022-12-05T00:00:00.000Z'
-title: Inscription en ligne titre lorem ipsum dolor sit amet
+title: Inscription en ligne titre 02 lorem ipsum dolor sit amet consectetur
 f_image:
   url: >-
     https://uploads-ssl.webflow.com/5d4d6299e11fbef0e969850a/639c5412e63ad84a2ef228d8_1671189521013-image17.jpg
   alt: null
-slug: inscription-en-ligne-titre-lorem-ipsum-dolor-sit-amet
+slug: inscription-en-ligne-titre-02-lorem-ipsum-dolor-sit-amet-consectetur
 f_categorie-de-l-inscription-en-ligne: cms/inscriptions-categories/categorie-2.md
-updated-on: '2022-12-16T12:16:19.560Z'
+updated-on: '2024-05-28T11:16:18.880Z'
 created-on: '2022-12-16T11:48:08.278Z'
-published-on: '2024-02-21T12:20:54.561Z'
+published-on: '2024-05-28T11:18:54.241Z'
 f_highlight: false
 layout: '[inscriptions].html'
 tags: inscriptions
