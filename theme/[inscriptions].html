@@ -483,9 +483,29 @@ document.addEventListener("DOMContentLoaded",checkViewportWidth);window.addEvent
   <script>
 /*
  * UTILITY | udesly redirect v1
- * built 28.05.24 @15:14
+ * built 28.05.24 @16:04
  */
-document.addEventListener("DOMContentLoaded",()=>{const form=document.querySelector('[data-basin-form="true"]');if(!form){return}const successURL=`${getBaseURL(window.location.href)}/success/`;console.log(successURL);observeFormDisplay(form,successURL)});function getBaseURL(url){const parsedURL=new URL(url);return parsedURL.hostname}function observeFormDisplay(form,successURL){const observer=new MutationObserver((mutations)=>{mutations.forEach((mutation)=>{if(mutation.attributeName==="style"&&form.style.display==="none"){window.open(successURL,"_self")}})});observer.observe(form,{attributes:true})}
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector('[data-basin-form="true"]');
+  if (!form) return;
+  const successURL = `${getBaseURL(window.location.href)}/success/`;
+  console.log(successURL);
+  observeFormDisplay(form, successURL);
+});
+function getBaseURL(url) {
+  const parsedURL = new URL(url);
+  return `${parsedURL.protocol}//${parsedURL.hostname}`;
+}
+function observeFormDisplay(form, successURL) {
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.attributeName === "style" && form.style.display === "none") {
+        window.open(successURL, "_self");
+      }
+    });
+  });
+  observer.observe(form, { attributes: true });
+} // end observeFormDisplay(form)
 </script>
 
 <script src="/assets/js/udesly-11ty.min.js" async="" defer=""></script>{{ settings.site.footer_additional_content }}</body></html>
