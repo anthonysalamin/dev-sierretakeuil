@@ -52,33 +52,12 @@
   <div class="page-wrapper">
     <div class="css-golbal w-embed">
       <style>
-	/* general clean up */
-  p {
-  	margin-bottom: 0px; /* udesly proof extra margin removal*/
-  }
-  html {
-  	font-size: 14px;
-  }
-  ::selection {
-      background-color: var(--color--yellow); /* custom text highlighting */
-  }
+/* general clean up */
+p{margin-bottom:0}html{font-size:14px}::selection{background-color:var(--color--yellow)}
 </style>
       <style>
-  /* rotation contact footer */
-  div[data-id="rotation"] {
-      animation: rotateZ 35s infinite linear;
-  }
-  div[data-id="rotation"]:hover {
-      animation-play-state: paused;
-  }
-  @keyframes rotateZ {
-      from {
-          transform: rotateZ(0deg);
-      }
-      to {
-          transform: rotateZ(360deg);
-      }
-  }
+/* rotation contact footer */
+div[data-id="rotation"]{animation:rotateZ 35s infinite linear}div[data-id="rotation"]:hover{animation-play-state:paused}@keyframes rotateZ{from{transform:rotateZ(0deg)}to{transform:rotateZ(360deg)}}
 </style>
     </div>
     <aside class="ticker__section">
@@ -459,6 +438,8 @@ animation-play-state: paused;
   <!--  lenis smooth scroll  -->
   <script data-id-scroll="" data-autoinit="true" data-duration="1" data-orientation="vertical" data-smoothwheel="true" data-smoothtouch="false" data-touchmultiplier="1.5" data-easing="(t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t))" data-useoverscroll="true" data-usecontrols="true" data-useanchor="true" data-useraf="true" data-infinite="false" defer="" src="https://assets.website-files.com/645e0e1ff7fdb6dc8c85f3a2/64a5544a813c7253b90f2f50_lenis-offbrand.txt">
 </script>
+  <!--  MixItUp 3 library v3.3.1  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!--  GSAP  -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!--  GSAP ScrollToPlugin.min.js  -->

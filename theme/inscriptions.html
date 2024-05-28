@@ -52,33 +52,12 @@
   <div class="page-wrapper">
     <div class="css-golbal w-embed">
       <style>
-	/* general clean up */
-  p {
-  	margin-bottom: 0px; /* udesly proof extra margin removal*/
-  }
-  html {
-  	font-size: 14px;
-  }
-  ::selection {
-      background-color: var(--color--yellow); /* custom text highlighting */
-  }
+/* general clean up */
+p{margin-bottom:0}html{font-size:14px}::selection{background-color:var(--color--yellow)}
 </style>
       <style>
-  /* rotation contact footer */
-  div[data-id="rotation"] {
-      animation: rotateZ 35s infinite linear;
-  }
-  div[data-id="rotation"]:hover {
-      animation-play-state: paused;
-  }
-  @keyframes rotateZ {
-      from {
-          transform: rotateZ(0deg);
-      }
-      to {
-          transform: rotateZ(360deg);
-      }
-  }
+/* rotation contact footer */
+div[data-id="rotation"]{animation:rotateZ 35s infinite linear}div[data-id="rotation"]:hover{animation-play-state:paused}@keyframes rotateZ{from{transform:rotateZ(0deg)}to{transform:rotateZ(360deg)}}
 </style>
     </div>
     <aside class="ticker__section">
@@ -218,7 +197,7 @@ animation-play-state: paused;
           </div>
         </div>
       </header>
-      <div class="section">
+      <div id="info" class="section">
         <div class="container">
           <div class="wrapper-filters">
             <div class="wrapper-buttons">
@@ -486,6 +465,8 @@ animation-play-state: paused;
   <!--  lenis smooth scroll  -->
   <script data-id-scroll="" data-autoinit="true" data-duration="1" data-orientation="vertical" data-smoothwheel="true" data-smoothtouch="false" data-touchmultiplier="1.5" data-easing="(t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t))" data-useoverscroll="true" data-usecontrols="true" data-useanchor="true" data-useraf="true" data-infinite="false" defer="" src="https://assets.website-files.com/645e0e1ff7fdb6dc8c85f3a2/64a5544a813c7253b90f2f50_lenis-offbrand.txt">
 </script>
+  <!--  MixItUp 3 library v3.3.1  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!--  GSAP  -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!--  GSAP ScrollToPlugin.min.js  -->
@@ -533,292 +514,21 @@ document.addEventListener("DOMContentLoaded",()=>{if(!document.querySelector("#m
  * build 21.02.24 @19:13
 */
 document.addEventListener("DOMContentLoaded",checkViewportWidth);window.addEventListener("resize",checkViewportWidth);function checkViewportWidth(){var viewportWidth=window.innerWidth||document.documentElement.clientWidth;if(viewportWidth>=768){initScrollProgress()}}function initScrollProgress(){const position="right";progressInjectCSS(position);progressInjectHTML();showScrollProgress()}function progressInjectCSS(position){const css=`.progress-wrap{--indicator-progress-color:rgba(255, 255, 255, 1);--indicator-slide-color:rgba(255, 255, 255, .1);--indicator-font:"Unicons";--indicator-content:"\\e84b";--indicator-hover:white --indicator-position:1.25rem}@font-face{font-family:"Unicons";src:url("https://uploads-ssl.webflow.com/61a0f086f2b1f289503a4957/6329d8e0a1790e3283ae2504_unicons.woff") format("woff");font-weight:400;font-style:normal;font-display:swap}.progress-wrap{position:fixed;mix-blend-mode:difference;${ position }:1.5rem;bottom:1.5rem;height:46px;width:46px;cursor:pointer;display:none;border-radius:50px;box-shadow:inset 0 0 0 2px var(--indicator-slide-color);z-index:10000;opacity:0;visibility:hidden;transform:translateY(15px);transition:all 200ms linear}.progress-wrap.active-progress{display:block;opacity:1;visibility:visible;transform:translateY(0)}.progress-wrap::after,.progress-wrap::before{position:absolute;font-family:var(--indicator-font);content:var(--indicator-content);text-align:center;line-height:46px;font-size:24px;left:0;top:0;height:46px;width:46px;cursor:pointer;display:block;transition:all 200ms linear}.progress-wrap::after{color:var(--indicator-progress-color);z-index:1}.progress-wrap:hover::before{color:var(--indicator-hover);transform:scale(1.0);transform-origin:center}.progress-wrap:hover::after{transform:scale(1.15);transform-origin:center}.progress-wrap svg path{fill:none}.progress-wrap svg.progress-circle path{stroke:var(--indicator-progress-color);stroke-width:4;box-sizing:border-box;transition:all 200ms linear}`;const style=document.createElement("style");style.innerHTML=css;document.head.appendChild(style)}function progressInjectHTML(){const scrollProgressHTML=`<div class="progress-wrap"><svg class="progress-circle svg-content"height="100%"viewBox="-1 -1 102 102"width="100%"><path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/></svg></div>`;const div=document.createElement("div");div.innerHTML=scrollProgressHTML;document.body.prepend(div)}function showScrollProgress(){if(!document.querySelector(".progress-wrap")){return}const progressPath=document.querySelector(".progress-wrap path");const pathLength=progressPath.getTotalLength();progressPath.style.transition="none";progressPath.style.strokeDasharray=`${ pathLength } ${ pathLength }`;progressPath.style.strokeDashoffset=pathLength;progressPath.getBoundingClientRect();progressPath.style.transition="stroke-dashoffset 10ms linear";const updateProgress=()=>{const scroll=window.pageYOffset||document.documentElement.scrollTop;const height=document.documentElement.scrollHeight-document.documentElement.clientHeight;const progress=pathLength-(scroll*pathLength)/height;progressPath.style.strokeDashoffset=progress};updateProgress();window.addEventListener("scroll",updateProgress,{passive:true});const offset=50;const duration=550;window.addEventListener("scroll",()=>{if(window.pageYOffset>offset){document.querySelector(".progress-wrap").classList.add("active-progress")}else{document.querySelector(".progress-wrap").classList.remove("active-progress")}},{passive:true});document.querySelector(".progress-wrap").addEventListener("click",(event)=>{event.preventDefault();scrollToTop(duration);return false});function scrollToTop(duration){const start=window.pageYOffset||document.documentElement.scrollTop;const startTime=performance.now();function scrollStep(timestamp){const currentTime=timestamp||performance.now();const elapsedTime=currentTime-startTime;const scrollTo=Math.max(start-(start*elapsedTime)/duration,0);window.scrollTo(0,scrollTo);if(elapsedTime<duration){window.requestAnimationFrame(scrollStep)}}window.requestAnimationFrame(scrollStep)}}
-</script><!--  MixItUp 3 library v3.3.1  -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
+</script>
   <script>
-/**
- * MixItUp 3 + Webflow v.9
+/*
+ * SIERRETAKEUIL | scroll header v2
+ * build 21.02.24 @18:29
+*/
+document.addEventListener("DOMContentLoaded",()=>{const infoSection=document.getElementById("info").offsetTop;const offset=100;const duration=1;delayExecution(()=>scrollToElement(infoSection,offset,duration))});function scrollToElement(element,offset,duration){gsap.to(window,{duration:duration,scrollTo:{y:element-offset,autoKill:false},ease:"power3.out"})}function delayExecution(func){setTimeout(func,550)}
+</script>
+  <script>
+/*
+ * MixItUp 3 + Webflow CMS v.2
  * Behaviour: filter (one dimension) + sort + search + hash URL function
- * combo class "checked" is injected dynamically on featuring btn
- * last build: 04.06.2023 @12:49 © anthonysalamin.ch
- */
-document.addEventListener("DOMContentLoaded", () => {
-  const production = true; // set to false for development ⚠️
-  const mixes = document.querySelectorAll(".mix");
-  const all = "Toutes les insccriptions";
-  const featuring = "Sélection";
-  injectDataAttribute(all, featuring);
-  filterChecked();
-  featToClass(mixes);
-  categToClass(mixes);
-  titleToClass(mixes);
-  mixItUp(production);
-});
-// helper
-function cleanAndTransformString(str) {
-  const accentMap = {
-    ä: "a",
-    Ä: "a",
-    à: "a",
-    À: "a",
-    é: "e",
-    É: "e",
-    è: "e",
-    È: "e",
-    ö: "o",
-    Ö: "o",
-    ü: "u",
-    Ü: "u"
-  };
-  let cleanedString = str;
-  for (const accentChar in accentMap) {
-    const normalChar = accentMap[accentChar];
-    const accentRegex = new RegExp(accentChar, "g");
-    cleanedString = cleanedString.replace(accentRegex, normalChar);
-  }
-  const transformedString = cleanedString
-    .replace(/\s+/g, " ")
-    .replace(/\s/g, "-");
-  const removedSpecialCharacters = transformedString.replace(
-    /[^a-zA-Z0-9-]/g,
-    ""
-  );
-  const lowercaseString = removedSpecialCharacters.toLowerCase();
-  return lowercaseString;
-}
-// helper
-function addDataAttributeToDiv(element, attributeName, attributeValue) {
-  if (element) {
-    element.setAttribute(`data-${attributeName}`, attributeValue);
-  } else {
-    console.error(`error`);
-  }
-}
-function injectDataAttribute(all, featuring) {
-  const controls = document.querySelector("#controls-mixitup");
-  const dynamicFilters = controls.querySelectorAll(".filter");
-  dynamicFilters.forEach((filter) => {
-    const content =
-      filter.querySelector(".filter-text").textContent ||
-      filter.querySelector(".filter-text").innerText;
-    const value = cleanAndTransformString(content);
-    /*
-    let dataValue;
-    if (content === all) {
-      dataValue = "all";
-    } else if (content === featuring) {
-      dataValue = "featuring";
-    } else {
-      dataValue = value;
-    }
-    */
-    addDataAttributeToDiv(filter, "filter", value);
-  });
-  addDataAttributeToDiv(dynamicFilters[0], "filter", "all");
-  addDataAttributeToDiv(dynamicFilters[1], "filter", "featuring");
-}
-// helpers
-function cleanString(elem) {
-  const string = elem.textContent;
-  // remplace special accent characters by normal letters (éèüä)
-  const accentMap = {
-    ä: "a",
-    Ä: "a",
-    à: "a",
-    À: "a",
-    é: "e",
-    É: "e",
-    è: "e",
-    È: "e",
-    ö: "o",
-    Ö: "o",
-    ü: "u",
-    Ü: "u"
-  };
-  const remplaceAccent = string.replace(
-    /[äÄàÀéÉèÈöÖüÜ]/g,
-    (match) => accentMap[match]
-  );
-  // remove all special characters except numbers
-  const removeSpecial = remplaceAccent.replace(/[^a-zA-Z0-9\s]/g, "");
-  // remplace double space by one space
-  const oneSpace = removeSpecial.split("  ").join(" ");
-  // remplace all spaces by "-"
-  const remplaceSpaces = oneSpace.split(" ").join("-");
-  // lowercase and trim if needed
-  const lowercased = remplaceSpaces.toLowerCase().trim();
-  // console.log(lowercased);
-  return lowercased;
-}
-// helper
-function injectChecked() {
-  document.querySelector("[data-filter='featuring']").classList.add("checked");
-}
-// helper
-function injectPointToDataFilter(element) {
-  if (!element.hasAttribute("data-filter") || element.dataset.filter === "all")
-    return;
-  element.setAttribute("data-filter", `.${element.dataset.filter}`);
-}
-function filterChecked() {
-  injectChecked();
-  const buttons = document.querySelectorAll(".filter");
-  Array.from(buttons).forEach((button) => {
-    button.setAttribute("type", "button");
-    injectPointToDataFilter(button);
-    button.addEventListener("click", (event) => {
-      const target = event.currentTarget;
-      if (target.classList == "filter checked") return;
-      document.querySelector(".filter.checked").classList.remove("checked");
-      target.classList.add("checked");
-    });
-  });
-}
-function featToClass(mixes) {
-  Array.from(mixes).forEach((mix) => {
-    const featured = mix.querySelector(".featuring");
-    if (!featured || featured.classList == "featuring w-condition-invisible")
-      return;
-    mix.classList.add(cleanString(featured));
-  });
-}
-function categToClass(mixes) {
-  Array.from(mixes).forEach((mix) => {
-    const categories = mix.querySelectorAll(".categ");
-    Array.from(categories).forEach((category) => {
-      const categoryClass = cleanString(category);
-      mix.classList.add(categoryClass);
-    });
-  });
-}
-function titleToClass(mixes) {
-  Array.from(mixes).forEach((mix) => {
-    const stringTitle = mix.querySelector(".title").textContent,
-      classNameTitle = stringTitle.split(" ").join("");
-    mix.classList.add(classNameTitle.toLowerCase().trim());
-  });
-}
-function mixItUp(production) {
-  const container = document.querySelector("#container-mixitup"),
-    inputSearch = document.querySelector("#input-search"),
-    status = document.querySelector("#status");
-  let keyupTimeout, searchValue;
-  if (!production) status.innerHTML = "MixItUp ready";
-  function mixFailBtn() {
-    const buttons = document.querySelectorAll(".filter"),
-      featuringBtn = document.querySelector("[data-filter='.featuring']");
-    Array.from(buttons).forEach((button) => {
-      if (featuringBtn.classList == "filter checked") return;
-      document.querySelector(".filter.checked").classList.remove("checked");
-      featuringBtn.classList.add("checked");
-    });
-  }
-  function resetInputSearch() {
-    inputSearch.value = "";
-  }
-  // mixer options
-  const mixer = mixitup(container, {
-    load: {
-      filter: ".featuring"
-    },
-    animation: {
-      duration: 450,
-      nudge: true,
-      reverseOut: true,
-      effects: "fade scale(0.77) translateZ(-68px) stagger(6ms)"
-    },
-    callbacks: {
-      onMixClick: handleMixClick,
-      onMixFail: handleMixFail,
-      onMixEnd: handleMixEnd
-    }
-  });
-  const messages = {
-    empty: "",
-    working: "filtering...",
-    error: "Oops, no match - try again",
-    completed: "Mixing finished"
-  };
-  function handleMixClick() {
-    if (this.matches("[data-filter]") && inputSearch) resetInputSearch();
-    if (!production) status.innerHTML = messages.working;
-  }
-  function handleMixFail() {
-    if (!production) status.innerHTML = messages.error;
-    console.log(messages.error);
-    setTimeout(resetFilterSearch, 500);
-  }
-  function resetFilterSearch() {
-    mixer.filter(".featuring");
-    mixFailBtn();
-    if (inputSearch) resetInputSearch();
-  }
-  function handleMixEnd() {
-    if (!production) status.innerHTML = messages.completed;
-  }
-  // 🍧 handle hash URL filtering
-  function setHashFromFilter() {
-    let filterValue, filterValueCleaned, filterFromHash;
-    const filters = document.getElementsByClassName("filter");
-    Array.from(filters).forEach((filter) => {
-      filter.addEventListener("click", (event) => {
-        // get the "data-filter" attribute
-        if (event.currentTarget.hasAttribute("data-filter"))
-          filterValue = event.currentTarget.getAttribute("data-filter");
-        // handle the "all" data-filter edge case
-        if (!filterValue.includes(".")) filterValue = `.${filterValue}`;
-        filterValueCleaned = filterValue.split(".")[1];
-        location.hash = "filter=" + encodeURIComponent(filterValueCleaned);
-      }); // end listener
-      // 🍪 if hash exists
-      if (location.hash) {
-        // handling of the data-filter="all" misssing the "."
-        location.hash == "#filter=all"
-          ? (filterFromHash = "all")
-          : (filterFromHash = location.hash.replace("#filter=", "."));
-        // update mixer on hash exists
-        mixer.filter(filterFromHash);
-        // handle button state on hash exists
-        const oldFilter = document
-          .querySelector(".filter.checked")
-          .classList.remove("checked");
-        const newFilter = document
-          .querySelector(`[data-filter="${filterFromHash}"]`)
-          .classList.add("checked");
-      }
-    });
-  }
-  setHashFromFilter();
-  // 🥤 set up a handler to listen for "keyup" events
-  function listenKeyup() {
-    // clause guard
-    if (!inputSearch) return;
-    inputSearch.addEventListener("keyup", (event) => {
-      inputSearch.value.length < 1
-        ? (searchValue = "")
-        : (searchValue = inputSearch.value.toLowerCase().trim());
-      // basic throttling to prevent mixer thrashing
-      clearTimeout(keyupTimeout);
-      keyupTimeout = setTimeout(function () {
-        filterByString(searchValue);
-      }, 350);
-    }); // end listener
-  } // end listenKeyup()
-  listenKeyup();
-  // 🍸 update mixitup mixer.filter method
-  function filterByString(searchValue) {
-    if (searchValue) {
-      mixer.filter(`[class*="${searchValue}"]`);
-    } else {
-      // update current category button state
-      document.querySelector(".filter.checked").classList.remove("checked");
-      document
-        .querySelector("[data-filter='.featuring']")
-        .classList.add("checked");
-      mixer.filter(".featuring");
-    }
-  }
-}
+ * Last build: 20.11.2019
+*/
+document.addEventListener("DOMContentLoaded",()=>{const production=true;const mixes=document.querySelectorAll(".mix");const all="Toutes les insccriptions";const featuring="Sélection";injectDataAttribute(all,featuring);filterChecked();featToClass(mixes);categToClass(mixes);titleToClass(mixes);mixItUp(production)});function cleanAndTransformString(str){const accentMap={ä:"a",Ä:"a",à:"a",À:"a",é:"e",É:"e",è:"e",È:"e",ö:"o",Ö:"o",ü:"u",Ü:"u"};let cleanedString=str;for(const accentChar in accentMap){const normalChar=accentMap[accentChar];const accentRegex=new RegExp(accentChar,"g");cleanedString=cleanedString.replace(accentRegex,normalChar)}const transformedString=cleanedString.replace(/\s+/g," ").replace(/\s/g,"-");const removedSpecialCharacters=transformedString.replace(/[^a-zA-Z0-9-]/g,"");const lowercaseString=removedSpecialCharacters.toLowerCase();return lowercaseString}function addDataAttributeToDiv(element,attributeName,attributeValue){if(element){element.setAttribute(`data-${ attributeName }`,attributeValue)}else{console.error(`error`)}}function injectDataAttribute(all,featuring){const controls=document.querySelector("#controls-mixitup");const dynamicFilters=controls.querySelectorAll(".filter");dynamicFilters.forEach((filter)=>{const content=filter.querySelector(".filter-text").textContent||filter.querySelector(".filter-text").innerText;const value=cleanAndTransformString(content);addDataAttributeToDiv(filter,"filter",value)});addDataAttributeToDiv(dynamicFilters[0],"filter","all");addDataAttributeToDiv(dynamicFilters[1],"filter","featuring")}function cleanString(elem){const string=elem.textContent;const accentMap={ä:"a",Ä:"a",à:"a",À:"a",é:"e",É:"e",è:"e",È:"e",ö:"o",Ö:"o",ü:"u",Ü:"u"};const remplaceAccent=string.replace(/[äÄàÀéÉèÈöÖüÜ]/g,(match)=>accentMap[match]);const removeSpecial=remplaceAccent.replace(/[^a-zA-Z0-9\s]/g,"");const oneSpace=removeSpecial.split("  ").join(" ");const remplaceSpaces=oneSpace.split(" ").join("-");const lowercased=remplaceSpaces.toLowerCase().trim();return lowercased}function injectChecked(){document.querySelector("[data-filter='featuring']").classList.add("checked")}function injectPointToDataFilter(element){if(!element.hasAttribute("data-filter")||element.dataset.filter==="all"){return}element.setAttribute("data-filter",`.${element.dataset.filter }`)}function filterChecked(){injectChecked();const buttons=document.querySelectorAll(".filter");Array.from(buttons).forEach((button)=>{button.setAttribute("type","button");injectPointToDataFilter(button);button.addEventListener("click",(event)=>{const target=event.currentTarget;if(target.classList=="filter checked"){return}document.querySelector(".filter.checked").classList.remove("checked");target.classList.add("checked")})})}function featToClass(mixes){Array.from(mixes).forEach((mix)=>{const featured=mix.querySelector(".featuring");if(!featured||featured.classList=="featuring w-condition-invisible"){return}mix.classList.add(cleanString(featured))})}function categToClass(mixes){Array.from(mixes).forEach((mix)=>{const categories=mix.querySelectorAll(".categ");Array.from(categories).forEach((category)=>{const categoryClass=cleanString(category);mix.classList.add(categoryClass)})})}function titleToClass(mixes){Array.from(mixes).forEach((mix)=>{const stringTitle=mix.querySelector(".title").textContent,classNameTitle=stringTitle.split(" ").join("");mix.classList.add(classNameTitle.toLowerCase().trim())})}function mixItUp(production){const container=document.querySelector("#container-mixitup"),inputSearch=document.querySelector("#input-search"),status=document.querySelector("#status");let keyupTimeout,searchValue;if(!production){status.innerHTML="MixItUp ready"}function mixFailBtn(){const buttons=document.querySelectorAll(".filter"),featuringBtn=document.querySelector("[data-filter='.featuring']");Array.from(buttons).forEach((button)=>{if(featuringBtn.classList=="filter checked"){return}document.querySelector(".filter.checked").classList.remove("checked");featuringBtn.classList.add("checked")})}function resetInputSearch(){inputSearch.value=""}const mixer=mixitup(container,{load:{filter:".featuring"},animation:{duration:450,nudge:true,reverseOut:true,effects:"fade scale(0.77) translateZ(-68px) stagger(6ms)"},callbacks:{onMixClick:handleMixClick,onMixFail:handleMixFail,onMixEnd:handleMixEnd}});const messages={empty:"",working:"filtering...",error:"Oops, no match - try again",completed:"Mixing finished"};function handleMixClick(){if(this.matches("[data-filter]")&&inputSearch){resetInputSearch()}if(!production){status.innerHTML=messages.working}}function handleMixFail(){if(!production){status.innerHTML=messages.error}console.log(messages.error);setTimeout(resetFilterSearch,500)}function resetFilterSearch(){mixer.filter(".featuring");mixFailBtn();if(inputSearch){resetInputSearch()}}function handleMixEnd(){if(!production){status.innerHTML=messages.completed}}function setHashFromFilter(){let filterValue,filterValueCleaned,filterFromHash;const filters=document.getElementsByClassName("filter");Array.from(filters).forEach((filter)=>{filter.addEventListener("click",(event)=>{if(event.currentTarget.hasAttribute("data-filter")){filterValue=event.currentTarget.getAttribute("data-filter")}if(!filterValue.includes(".")){filterValue=`.${ filterValue }`}filterValueCleaned=filterValue.split(".")[1];location.hash="filter="+encodeURIComponent(filterValueCleaned)});if(location.hash){location.hash=="#filter=all"?(filterFromHash="all"):(filterFromHash=location.hash.replace("#filter=","."));mixer.filter(filterFromHash);const oldFilter=document.querySelector(".filter.checked").classList.remove("checked");const newFilter=document.querySelector(`[data-filter="${ filterFromHash }"]`).classList.add("checked")}})}setHashFromFilter();function listenKeyup(){if(!inputSearch){return}inputSearch.addEventListener("keyup",(event)=>{inputSearch.value.length<1?(searchValue=""):(searchValue=inputSearch.value.toLowerCase().trim());clearTimeout(keyupTimeout);keyupTimeout=setTimeout(function(){filterByString(searchValue)},350)});}listenKeyup();function filterByString(searchValue){if(searchValue){mixer.filter(`[class*="${ searchValue }"]`)}else{document.querySelector(".filter.checked").classList.remove("checked");document.querySelector("[data-filter='.featuring']").classList.add("checked");mixer.filter(".featuring")}}}
 </script>
 
 <script src="/assets/js/udesly-11ty.min.js" async="" defer=""></script>{{ settings.site.footer_additional_content }}</body></html>

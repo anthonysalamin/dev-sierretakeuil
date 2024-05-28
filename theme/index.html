@@ -52,33 +52,12 @@
   <div class="page-wrapper">
     <div class="css-golbal w-embed">
       <style>
-	/* general clean up */
-  p {
-  	margin-bottom: 0px; /* udesly proof extra margin removal*/
-  }
-  html {
-  	font-size: 14px;
-  }
-  ::selection {
-      background-color: var(--color--yellow); /* custom text highlighting */
-  }
+/* general clean up */
+p{margin-bottom:0}html{font-size:14px}::selection{background-color:var(--color--yellow)}
 </style>
       <style>
-  /* rotation contact footer */
-  div[data-id="rotation"] {
-      animation: rotateZ 35s infinite linear;
-  }
-  div[data-id="rotation"]:hover {
-      animation-play-state: paused;
-  }
-  @keyframes rotateZ {
-      from {
-          transform: rotateZ(0deg);
-      }
-      to {
-          transform: rotateZ(360deg);
-      }
-  }
+/* rotation contact footer */
+div[data-id="rotation"]{animation:rotateZ 35s infinite linear}div[data-id="rotation"]:hover{animation-play-state:paused}@keyframes rotateZ{from{transform:rotateZ(0deg)}to{transform:rotateZ(360deg)}}
 </style>
     </div>
     <aside class="ticker__section">
@@ -555,6 +534,8 @@ animation-play-state: paused;
   <!--  lenis smooth scroll  -->
   <script data-id-scroll="" data-autoinit="true" data-duration="1" data-orientation="vertical" data-smoothwheel="true" data-smoothtouch="false" data-touchmultiplier="1.5" data-easing="(t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t))" data-useoverscroll="true" data-usecontrols="true" data-useanchor="true" data-useraf="true" data-infinite="false" defer="" src="https://assets.website-files.com/645e0e1ff7fdb6dc8c85f3a2/64a5544a813c7253b90f2f50_lenis-offbrand.txt">
 </script>
+  <!--  MixItUp 3 library v3.3.1  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!--  GSAP  -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!--  GSAP ScrollToPlugin.min.js  -->
@@ -608,25 +589,7 @@ document.addEventListener("DOMContentLoaded",checkViewportWidth);window.addEvent
  * SIERRETAKEUIL | scroll header v2
  * build 21.02.24 @18:29
 */
-// scroll to 'info' anchor minus X px on load
-document.addEventListener("DOMContentLoaded", () => {
-  const infoSection = document.getElementById("info").offsetTop;
-  const offset = 100;
-  const duration = 1;
-  delayExecution(() => scrollToElement(infoSection, offset, duration));
-});
-// helper
-function scrollToElement(element, offset, duration) {
-  gsap.to(window, {
-    duration: duration,
-    scrollTo: { y: element - offset, autoKill: false },
-    ease: "power3.out"
-  });
-}
-// helper
-function delayExecution(func) {
-  setTimeout(func, 550);
-}
+document.addEventListener("DOMContentLoaded",()=>{const infoSection=document.getElementById("info").offsetTop;const offset=100;const duration=1;delayExecution(()=>scrollToElement(infoSection,offset,duration))});function scrollToElement(element,offset,duration){gsap.to(window,{duration:duration,scrollTo:{y:element-offset,autoKill:false},ease:"power3.out"})}function delayExecution(func){setTimeout(func,550)}
 </script>
   <script>
 /*
@@ -634,62 +597,20 @@ function delayExecution(func) {
  * TO DO dynamic elipsis based on available wraper space
  * build 14.06.23 @ 22:40
 */
-document.addEventListener("DOMContentLoaded", () => {
-  truncateDescription(limit = 200, maxCharacters = 300);
-});
-function countCharacters(target) {
-  const characters = target.textContent.split("");
-  return characters.length; // returns the amount of characters incl. spaces
-}
-function truncateDescription(limit, maxCharacters) {
-  const targets = document.querySelectorAll(".mini-description");
-  // clause guard
-  if (targets.length == 0) return;
-  Array.from(targets).forEach((target) => {
-    if (countCharacters(target) < limit) return; // skip truncation
-    const text = target.textContent,
-      elipsis = text.substring(0, maxCharacters);
-    target.textContent = `${elipsis} ...`;
-  }); // end for each
-}
+document.addEventListener("DOMContentLoaded",()=>{truncateDescription(limit=200,maxCharacters=300)});function countCharacters(target){const characters=target.textContent.split("");return characters.length;}function truncateDescription(limit,maxCharacters){const targets=document.querySelectorAll(".mini-description");if(targets.length==0){return}Array.from(targets).forEach((target)=>{if(countCharacters(target)<limit){return;}const text=target.textContent,elipsis=text.substring(0,maxCharacters);target.textContent=`${ elipsis } ...`});}
 </script>
   <script>
 /*
  * Elipsis
 */
-// 🌽 when DOM has loaded
-document.addEventListener("DOMContentLoaded", () => {
-  const limit = 50, // number of character allowed before truncation trigger
-    maxCharacters = 50; // number of characher displayed after elipsis
-  truncateParagraphs(limit, maxCharacters);
-});
-// 🍆 helper function
-function countCharacters(target) {
-  const characters = target.textContent.split("");
-  return characters.length; // returns the amount of characters incl. spaces
-}
-// 🥬 truncate function
-function truncateParagraphs(limit, maxCharacters) {
-  const targets = document.querySelectorAll(".heading");
-  // clause guard
-  if (targets.length == 0) return;
-  Array.from(targets).forEach((target) => {
-    if (countCharacters(target) < limit) return; // skip truncation
-    const text = target.textContent,
-      elipsis = text.substring(0, maxCharacters);
-    target.textContent = `${elipsis}...`;
-  }); // end for each
-}
+document.addEventListener("DOMContentLoaded",()=>{const limit=50,maxCharacters=50;truncateParagraphs(limit,maxCharacters)});function countCharacters(target){const characters=target.textContent.split("");return characters.length;}function truncateParagraphs(limit,maxCharacters){const targets=document.querySelectorAll(".heading");if(targets.length==0){return}Array.from(targets).forEach((target)=>{if(countCharacters(target)<limit){return;}const text=target.textContent,elipsis=text.substring(0,maxCharacters);target.textContent=`${ elipsis }...`});}
 </script>
-  <!--  MixItUp 3 library v3.3.1  -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
-/**
+/*
  * MixItUp 3 + Webflow CMS v.2
  * Behaviour: filter (one dimension) + sort + search + hash URL function
  * Last build: 20.11.2019 | anthonysalamin.ch
- */
-// 🌮 on DOM loaded
+*/
 document.addEventListener("DOMContentLoaded",(event)=>{const production=true;filterChecked();featToClass();categToClass();titleToClass();mixItUp(production)});function filterChecked(){const controls=document.getElementById("controlsMixItUp"),buttons=document.getElementsByClassName("filter");Array.from(buttons).forEach((button)=>{button.addEventListener("click",(event)=>{let target=event.currentTarget;if(target.classList!="filter checked"){controls.querySelector(".filter.checked").classList.remove("checked");target.classList.add("checked")}else{return}});})}function featToClass(){const mixes=document.getElementsByClassName("mix");Array.from(mixes).forEach((mix)=>{const featured=mix.querySelector(".feat");if(!featured){return}const stringFeat=featured.textContent,classNameFeat=stringFeat.split(" ").join("");const feat=mix.querySelector(".feat");if(mix.querySelector(".feat").classList!="feat w-condition-invisible"){mix.classList.add(classNameFeat.toLowerCase().trim())}})}function categToClass(){const mixes=document.getElementsByClassName("mix");Array.from(mixes).forEach((mix)=>{let stringCateg=mix.querySelector(".categ").textContent,classNameCateg=stringCateg.split(" ").join("");mix.classList.add(classNameCateg.toLowerCase().trim())})}function titleToClass(){const mixes=document.getElementsByClassName("mix");Array.from(mixes).forEach((mix)=>{let stringTitle=mix.querySelector(".title").textContent,classNameTitle=stringTitle.split(" ").join("");mix.classList.add(classNameTitle.toLowerCase().trim())})}function mixItUp(production){const container=document.getElementById("containerMixItUp"),inputSearch=document.getElementById("inputSearch");let keyupTimeout,searchValue,status=document.getElementById("status");if(!production){status.innerHTML="<b>MixItUp ready 🧠</b>"}function mixFailBtn(){const controls=document.getElementById("controlsMixItUp"),buttons=document.getElementsByClassName("filter"),feat=document.querySelector("button[data-filter='.feat']");Array.from(buttons).forEach((button)=>{if(feat.classList!="filter checked"){controls.querySelector(".filter.checked").classList.remove("checked");feat.classList.add("checked")}})}let mixer=mixitup(container,{load:{filter:".feat"},animation:{duration:450,nudge:true,reverseOut:true,effects:"fade scale(0.77) translateZ(-68px) stagger(6ms)"},callbacks:{onMixClick:function(){if(this.matches("[data-filter]")){inputSearch.value=""}if(!production){status.innerHTML="<b>Button clicked... ⚙️</b>"}},onMixFail:function(){if(!production){status.innerHTML="<b>Oops, no match 🥵 try again</b>"}console.log("error, no item match search filter");setTimeout(function(){mixer.filter(".feat");mixFailBtn();inputSearch.value=""},700)},onMixEnd:function(){if(!production){status.innerHTML="<b>Mixing finished 🥳</b>"}}}});(function setHashFromFilter(){let filterValue,filterValueCleaned,filterFromHash,filters=document.getElementsByClassName("filter");Array.from(filters).forEach((filter)=>{filter.addEventListener("click",(event)=>{if(event.currentTarget.hasAttribute("data-filter")){filterValue=event.currentTarget.getAttribute("data-filter")}if(!filterValue.includes(".")){filterValue=`.${ filterValue }`}filterValueCleaned=filterValue.split(".")[1];location.hash="filter="+encodeURIComponent(filterValueCleaned)});if(location.hash){if(location.hash=="#filter=all"){filterFromHash="all"}else{filterFromHash=location.hash.replace("#filter=",".")}mixer.filter(filterFromHash);let oldFilter=document.querySelector(".filter.checked").classList.remove("checked");let newFilter=document.querySelector(`[data-filter="${ filterFromHash }"]`).classList.add("checked")}})})();inputSearch.addEventListener("keyup",(event)=>{if(inputSearch.value.length<1){searchValue=""}else{searchValue=inputSearch.value.toLowerCase().trim()}clearTimeout(keyupTimeout);keyupTimeout=setTimeout(function(){filterByString(searchValue)},350)});function filterByString(searchValue){if(searchValue){mixer.filter(`[class*="${ searchValue }"]`)}else{document.querySelector(".filter.checked").classList.remove("checked");document.querySelector("[data-filter='.feat']").classList.add("checked");mixer.filter(".feat")}}}
 </script>
 
