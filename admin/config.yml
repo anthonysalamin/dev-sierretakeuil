@@ -1604,10 +1604,6 @@ collections:
             label: Link
             name: 16bdc13e
             widget: string
-          - hint: 'Original link: #info, key: 21e9b51'
-            label: Link
-            name: 21e9b51
-            widget: string
           - hint: 'Original link: #, key: 23'
             label: Link
             name: '23'

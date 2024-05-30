@@ -197,7 +197,7 @@ animation-play-state: paused;
           </div>
         </div>
       </header>
-      <div id="info" class="section">
+      <div id="section-inscriptions" class="section">
         <div class="container">
           <div class="wrapper-filters">
             <div class="wrapper-buttons">
@@ -520,7 +520,7 @@ document.addEventListener("DOMContentLoaded",checkViewportWidth);window.addEvent
  * SIERRETAKEUIL | scroll header v2
  * build 21.02.24 @18:29
 */
-document.addEventListener("DOMContentLoaded",()=>{const infoSection=document.getElementById("info").offsetTop;const offset=100;const duration=1;delayExecution(()=>scrollToElement(infoSection,offset,duration))});function scrollToElement(element,offset,duration){gsap.to(window,{duration:duration,scrollTo:{y:element-offset,autoKill:false},ease:"power3.out"})}function delayExecution(func){setTimeout(func,550)}
+document.addEventListener("DOMContentLoaded",()=>{const infoSection=document.getElementById("section-inscriptions").offsetTop;const offset=100;const duration=1;delayExecution(()=>scrollToElement(infoSection,offset,duration))});function scrollToElement(element,offset,duration){gsap.to(window,{duration:duration,scrollTo:{y:element-offset,autoKill:false},ease:"power3.out"})}function delayExecution(func){setTimeout(func,550)}
 </script>
   <script>
 /*

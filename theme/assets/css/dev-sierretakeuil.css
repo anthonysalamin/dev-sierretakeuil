@@ -591,7 +591,6 @@ blockquote {
 .cl_article_wrapper {
   width: 100%;
   height: auto;
-  margin-bottom: 80px;
   margin-left: -8px;
   margin-right: -8px;
 }
@@ -2092,7 +2091,7 @@ blockquote {
   }
 
   .wrap_mix {
-    min-height: auto;
+    min-height: 140px;
   }
 
   .wrap_tags {
@@ -2285,11 +2284,20 @@ blockquote {
   }
 
   .filter {
-    flex: 1 0 auto;
+    flex: auto;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-columns: 1fr;
+    margin: 4px;
   }
 
   .wrapper-buttons {
-    justify-content: space-between;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    flex-flow: wrap;
+    justify-content: center;
+    margin-left: -2px;
+    margin-right: -2px;
   }
 
   .wrapper-filters {
@@ -2303,6 +2311,10 @@ blockquote {
 
   .search-field {
     height: 60px;
+  }
+
+  .mix {
+    padding: 4px 0;
   }
 
   .wrap_mix {
