@@ -301,23 +301,6 @@ collections:
         widget: markdown
         required: false
       - hint: ''
-        name: f_image
-        label: Image
-        widget: object
-        required: true
-        fields:
-          - hint: ''
-            name: url
-            label: Image
-            widget: image
-            required: true
-            allow_multiple: false
-          - hint: Image Alt
-            name: alt
-            label: alt
-            widget: string
-            required: false
-      - hint: ''
         name: f_date-de-publication
         label: Date de publication de l'inscription en ligne
         widget: datetime
@@ -788,9 +771,9 @@ collections:
             label: Text
             name: '-6372c45'
             widget: string
-          - hint: 'Original text: soon, key: 35f53b'
+          - hint: 'Original text: ONLINE, key: -74c255ad'
             label: Text
-            name: 35f53b
+            name: '-74c255ad'
             widget: string
           - hint: 'Original text: Questions, key: d37612d'
             label: Text
@@ -881,6 +864,10 @@ collections:
           - hint: 'Original text:  (4), key: f287d'
             label: Text
             name: f287d
+            widget: string
+          - hint: 'Original text: soon, key: 35f53b'
+            label: Text
+            name: 35f53b
             widget: string
           - hint: 'Original text: 027 452 02 34, key: -1298d1bb'
             label: Text

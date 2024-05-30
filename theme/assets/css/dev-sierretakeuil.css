@@ -1403,10 +1403,6 @@ blockquote {
   display: block;
 }
 
-.pill-mini.hide {
-  display: none;
-}
-
 .nav__link {
   color: var(--color--body);
   cursor: pointer;
