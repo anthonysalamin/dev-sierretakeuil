@@ -224,8 +224,10 @@ animation-play-state: paused;
                 <a href="{{ item.url }}" class="wrap_mix w-inline-block">
                   <h2 class="heading">{{ item.data.title }}</h2>
                   <div class="div-block-12">
-                    <div class="">{{  item.data.f_date-de-publication | formatDate: "d.M.yy" }}</div>
-                    {%- assign ref = item.data.f_categorie-de-l-inscription-en-ligne | resolveReference -%}<div class="">{{ ref.data.title }}</div>
+                    <div class="text-block-2">{{  item.data.f_date-de-publication | formatDate: "d/M/yyyy" }}</div>
+                    <div class="div-block-13">
+                      {%- assign ref = item.data.f_categorie-de-l-inscription-en-ligne | resolveReference -%}<div class="">{{ ref.data.title }}</div>{%- if item.data.f_highlight == true -%}<img src="{{ images.-3e167b83.url }}" loading="lazy" alt="{{ images.-3e167b83.alt | escape }}" class="icon star">{%- endif -%}
+                    </div>
                   </div>
                 </a>
               </div>{%- endfor -%}

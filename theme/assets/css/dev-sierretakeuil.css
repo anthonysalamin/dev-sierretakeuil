@@ -1095,13 +1095,10 @@ blockquote {
   height: 12px;
 }
 
-.icon.star {
-  margin-top: 6px;
-}
-
 .wrap-icon {
   justify-content: flex-start;
   align-items: center;
+  padding-top: 6px;
   display: flex;
 }
 
@@ -1838,6 +1835,18 @@ blockquote {
   display: flex;
 }
 
+.div-block-13 {
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
+  justify-content: flex-end;
+  align-items: center;
+  display: flex;
+}
+
+.text-block-2 {
+  color: #d1d1d1;
+}
+
 @media screen and (max-width: 991px) {
   h2 {
     margin-bottom: 16px;
@@ -2074,8 +2083,12 @@ blockquote {
   }
 
   .filter {
-    border-width: 1px;
     padding: 10px 20px;
+  }
+
+  .wrapper-buttons {
+    grid-column-gap: 4px;
+    grid-row-gap: 4px;
   }
 
   .search-field {
@@ -2279,8 +2292,6 @@ blockquote {
 
   .cl-wrapper-items {
     margin-top: 25px;
-    margin-left: -10px;
-    margin-right: -10px;
   }
 
   .filter {
@@ -2288,16 +2299,6 @@ blockquote {
     grid-template-rows: auto auto;
     grid-template-columns: 1fr 1fr;
     grid-auto-columns: 1fr;
-    margin: 4px;
-  }
-
-  .wrapper-buttons {
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    flex-flow: wrap;
-    justify-content: center;
-    margin-left: -2px;
-    margin-right: -2px;
   }
 
   .wrapper-filters {

@@ -305,7 +305,9 @@ collections:
         label: Date de publication de l'inscription en ligne
         widget: datetime
         required: true
-      - hint: ''
+      - hint: >-
+          NE PAS SELECTIONNER "HIGHLIGHT", POUR ATTRIBUER LE TAG HIGHLIGHT,
+          ACTIVER LE SWITCH "HIGHLIGHT" CI-DESSOUS."
         name: f_categorie-de-l-inscription-en-ligne
         label: Categorie de l'inscription en ligne
         widget: relation
